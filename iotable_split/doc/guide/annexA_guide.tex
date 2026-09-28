@@ -1,0 +1,579 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs,array,multirow}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\theoremstyle{definition}
+\newtheorem{issue}{Ambiguity}
+
+% ---------- notation macros ----------
+\newcommand{\sem}{{261S}}   % semiconductors
+\newcommand{\oth}{{26X}}    % ICT & electronics excl. semiconductors
+\newcommand{\agg}{{26}}     % original division 26
+\newcommand{\tZ}{\tilde{Z}}
+\newcommand{\todo}[1]{\textcolor{red}{[\textbf{TODO:} #1]}}
+\newcommand{\paper}[1]{\textcolor{blue!50!black}{[paper: #1]}}
+
+\title{Splitting ICIO division 26 into semiconductors and other ICT \& electronics:\\
+a step-by-step guide to Annex~A of Haramboure et al.\ (2023)}
+\author{Working notes}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+Haramboure, Lalanne, Schwellnus and Guilhoto (2023), \emph{Vulnerabilities in the semiconductor supply chain},
+OECD STI Working Paper 2023/05, split ICIO industry ``Computer, electronic and optical equipment'' (ISIC Rev.4
+division 26) into ``Semiconductors'' (\sem) and ``ICT and electronics excluding semiconductors'' (\oth). Their
+Annex~A describes the method in four pages. This note restates every step with explicit notation, spells out the
+algebra behind each equation, shows which data enter where, gives a worked numerical example of the balancing
+step, and lists the points where the Annex is ambiguous or inconsistent together with the resolution adopted
+here. Equation labels (A.1)--(A.13) refer to the transcription in \texttt{doc/haramboure2023\_annexA.md}.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+%==========================================================================
+\section{What the method does, in one page}
+%==========================================================================
+
+\paragraph{Goal.} Start from a standard ICIO table in which division 26 is a single industry in every country.
+End with a table in which, in every country, row and column 26 are replaced by two rows and two columns
+(\sem{} and \oth), such that the new table is a complete, internally consistent ICIO table.
+
+\paragraph{Key idea.} The paper does \emph{not} split flows directly. It splits the \emph{technical
+coefficients} $A$, sets final demand for semiconductors to zero, and then recomputes gross output, flows and
+value added from the Leontief model. Everything therefore hinges on constructing a split $A$ matrix.
+
+\paragraph{Data.}
+\begin{enumerate}[nosep]
+  \item ICIO table (all years): $Z$, $Y$, $X$, value added, taxes.
+  \item Bilateral trade in semiconductors (HS 8541 + 8542), all years and country pairs: $M^{r,s}_\sem$.
+  \item A small number of detailed national IO tables (one base year each) in which semiconductors are a
+        separate product/industry. The paper uses KOR 2014, JPN 2011, MYS 2010, TWN 2016, USA 2012.
+\end{enumerate}
+
+\paragraph{Pipeline.} The split $A$ matrix is built block by block (Figure~\ref{fig:blocks}):
+
+\begin{center}
+\begin{tabular}{@{}clll@{}}
+\toprule
+Step & Block of $A$ & Source of the split & Annex eq. \\
+\midrule
+0 & -- & Prepare ICIO, trade data, national-table ratios & -- \\
+1 & domestic ($r=s$), reference economies & national IO tables & (A.1) \\
+2 & domestic ($r=s$), other economies & mapping to reference economies & -- \\
+3 & imports ($r\neq s$), columns & domestic column ratios of the \emph{buyer} $s$ & (A.2) \\
+4 & imports ($r\neq s$), rows & domestic row shares of $s$ + RAS to match trade & (A.3)--(A.10) \\
+5 & final demand, $X$, $Z$, VA & Leontief model & (A.11)--(A.13) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{figure}[ht]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{c|ccc|ccc|}
+ \multicolumn{1}{c}{} & \multicolumn{3}{c}{buyer economy $s=r$} & \multicolumn{3}{c}{buyer economy $s\neq r$} \\
+ \multicolumn{1}{c}{} & $j\neq 26$ & \sem & \multicolumn{1}{c}{\oth} & $j\neq 26$ & \sem & \multicolumn{1}{c}{\oth} \\ \cline{2-7}
+ origin $r$, $i\neq 26$ & known & \multicolumn{2}{c|}{\textbf{col split} (1--2)} & known & \multicolumn{2}{c|}{\textbf{col split} (3)} \\
+ origin $r$, \sem & \multirow{2}{*}{\textbf{row split} (1--2)} & \multicolumn{2}{c|}{\multirow{2}{*}{\textbf{2$\times$2} (1--2)}} & \multirow{2}{*}{\textbf{row split} (4)} & \multicolumn{2}{c|}{\multirow{2}{*}{\textbf{2$\times$2} (3+4)}}\\
+ origin $r$, \oth & & & & & & \\ \cline{2-7}
+\end{tabular}
+\caption{Which cells of $A$ must be created, and by which step (numbers in brackets). ``Row split'': the
+original row 26 is divided between \sem{} and \oth{} (who \emph{sells} what). ``Col split'': the original
+column 26 is divided (who \emph{buys} inputs). The intersection is a $2\times 2$ block. This replaces the
+paper's Figure A A.1, which is an image.}
+\label{fig:blocks}
+\end{figure}
+
+%==========================================================================
+\section{Notation and ICIO accounting}
+%==========================================================================
+
+\subsection{Indices and objects}
+
+\begin{itemize}[nosep]
+  \item Economies $r,s \in \{1,\dots,N\}$; $r$ = origin (seller), $s$ = destination (buyer).
+  \item Industries $i,j \in \{1,\dots,K\}$ in the original table; $i$ = supplying (row), $j$ = purchasing (column).
+        Division 26 is written \agg. After the split, \agg{} is replaced by \sem{} and \oth, so there are $K+1$ industries.
+  \item $Z^{r,s}_{i,j}$: intermediate sales of industry $i$ in $r$ to industry $j$ in $s$ (USD million).
+  \item $Y^{r,s}_{i}$: final demand of $s$ for output of industry $i$ in $r$, summed over final-demand
+        categories (HFCE, NPISH, GGFC, GFCF, INVNT, DPABR).
+  \item $X^r_i$: gross output. $W^r_j$: value added; $T^r_j$: taxes less subsidies on intermediates
+        (the ICIO \texttt{TLS} row). Some ICIO editions record TLS by origin; treat it as one row here.
+  \item Technical coefficients: $a^{r,s}_{i,j} = Z^{r,s}_{i,j} / X^s_j$.
+        \emph{The denominator is the output of the buying industry.}
+  \item Base year of a national table: $t_0$. A left superscript ${}^{t}a$ marks the year when needed.
+  \item $M^{r,s}_\sem$: imports of semiconductors by $s$ from $r$ (trade data).
+\end{itemize}
+
+\subsection{Identities that the final table must satisfy}
+\begin{align}
+  \text{row (sales):}\quad & X^r_i = \sum_{s}\sum_j Z^{r,s}_{i,j} + \sum_s Y^{r,s}_i, \label{eq:row}\\
+  \text{column (costs):}\quad & X^s_j = \sum_r\sum_i Z^{r,s}_{i,j} + T^s_j + W^s_j. \label{eq:col}
+\end{align}
+In matrix form with $A$ stacked over all $(r,i)$ and $(s,j)$: $X = AX + Y\mathbf 1$, hence $X = (I-A)^{-1}y$ with
+$y$ the row sums of final demand.
+
+\subsection{Two facts that explain every formula in Annex A}
+
+\begin{lemma}[Rows add up]\label{lem:rows}
+For any buyer $(s,j)$ and origin $r$,
+$a^{r,s}_{\sem,j} + a^{r,s}_{\oth,j} = a^{r,s}_{\agg,j}$.
+\end{lemma}
+\begin{proof}
+All three coefficients share the same denominator $X^s_j$, and $Z^{r,s}_{\sem,j}+Z^{r,s}_{\oth,j}=Z^{r,s}_{\agg,j}$.
+\end{proof}
+
+So splitting a \textbf{row} is splitting a number into two \emph{shares} that sum to one:
+$a^{r,s}_{\sem,j} = \sigma\, a^{r,s}_{\agg,j}$, $a^{r,s}_{\oth,j} = (1-\sigma)\, a^{r,s}_{\agg,j}$.
+
+\begin{lemma}[Columns average]\label{lem:cols}
+Let $w^s = X^s_\sem / X^s_\agg$ be the semiconductor share of division-26 output in $s$. For any supplier $(r,i)$,
+\[
+  a^{r,s}_{i,\agg} = w^s\, a^{r,s}_{i,\sem} + (1-w^s)\, a^{r,s}_{i,\oth}.
+\]
+\end{lemma}
+\begin{proof}
+$a^{r,s}_{i,\agg} = \dfrac{Z^{r,s}_{i,\sem}+Z^{r,s}_{i,\oth}}{X^s_\sem + X^s_\oth}
+ = \dfrac{X^s_\sem}{X^s_\agg}\dfrac{Z^{r,s}_{i,\sem}}{X^s_\sem} + \dfrac{X^s_\oth}{X^s_\agg}\dfrac{Z^{r,s}_{i,\oth}}{X^s_\oth}.$
+\end{proof}
+
+So splitting a \textbf{column} is \emph{not} a share split. The two new coefficients are not fractions of the old
+one; they are \emph{intensities} whose output-weighted average is the old one. This is why Annex A uses ratios
+such as $a_{i,\sem}/a_{i,\agg}$ (which can exceed 1) for columns and shares $a_{\sem,j}/a_{\agg,j}$ (which lie in
+$[0,1]$) for rows.
+
+\begin{remark}\label{rem:rho}
+Define the column \emph{relative intensity} $\rho_{i,k} = a_{i,k}/a_{i,\agg}$ for $k\in\{\sem,\oth\}$.
+Lemma~\ref{lem:cols} says $w\rho_{i,\sem} + (1-w)\rho_{i,\oth} = 1$. Equivalently, in flow terms,
+the \emph{column flow share} $\phi_i = Z_{i,\sem}/Z_{i,\agg} = w\,\rho_{i,\sem}$ lies in $[0,1]$.
+\end{remark}
+
+%==========================================================================
+\section{Step 0: preparing the inputs}
+%==========================================================================
+
+\subsection{ICIO}
+Load $Z$, $Y$ (all final-demand categories), $X$, $W$, $T$ for every year. Check identities
+\eqref{eq:row}--\eqref{eq:col} on the original data first; the tolerance you observe there is the tolerance you
+can expect after the split. Compute $A$ with $a^{r,s}_{i,j} = Z^{r,s}_{i,j}/X^s_j$ (set to 0 when $X^s_j=0$).
+If the ICIO edition splits China and Mexico (CN1/CN2, MX1/MX2), treat each part as an economy.
+
+\subsection{Trade data: $M^{r,s}_\sem$}
+\paper{BTDIxE database (\url{http://oe.cd/btd}), HS headings 8541 and 8542, every year and economy pair.}
+\begin{itemize}[nosep]
+  \item Units: convert to USD million to match ICIO.
+  \item Valuation: trade data are FOB (exports) or CIF (imports); ICIO imports are at basic prices. The paper does
+        not adjust. Decide and document (e.g.\ use exporter-reported FOB values, or mirror data).
+  \item HS 8541 includes photovoltaic cells and LEDs. The paper keeps the whole headings in Annex A
+        (it excludes PV and LEDs only in the descriptive Annex B figures).
+  \item Aggregate trade partners to the ICIO country list (rest-of-world included).
+  \item Only $r\neq s$ is used. Domestic sales of semiconductors are not observed.
+\end{itemize}
+
+\subsection{National IO tables: the three objects you need}
+For each reference economy $c$ with a detailed table in base year $t_0$:
+\begin{enumerate}
+  \item Map the detailed products/industries to the ICIO industry list, but keep \sem{} and \oth{} separate
+        (\sem{} = semiconductor devices / integrated circuits; \oth{} = the rest of division 26).
+  \item Use the \textbf{domestic} flow table (intermediate use of domestically produced goods), because the
+        paper uses domestic technical coefficients. If the table is of the competitive-import type (imports
+        included in each cell), remove imports first, e.g.\ with the import-proportionality assumption.
+        \todo{check table type for each national table you hold.}
+  \item Compute base-year domestic coefficients ${}^{t_0}a^{c,c}_{i,j}$ on the $(K+1)\times(K+1)$ classification and
+        on the original $K\times K$ classification (aggregate \sem+\oth{} back into \agg).
+\end{enumerate}
+From these, store:
+\begin{align}
+  \text{row shares:}\qquad & \sigma^c_j = \frac{{}^{t_0}a^{c,c}_{\sem,j}}{{}^{t_0}a^{c,c}_{\agg,j}}
+     \quad\text{for all buyers } j \text{ (original } j \text{ and } j\in\{\sem,\oth\}), \label{eq:sigma}\\
+  \text{column ratios:}\qquad & \rho^c_{i,k} = \frac{{}^{t_0}a^{c,c}_{i,k}}{{}^{t_0}a^{c,c}_{i,\agg}},
+     \quad k\in\{\sem,\oth\}, \text{ for all suppliers } i, \label{eq:rho}\\
+  \text{output share:}\qquad & w^c_0 = {}^{t_0}X^c_\sem / {}^{t_0}X^c_\agg . \label{eq:w0}
+\end{align}
+Also store the $2\times2$ domestic block ratios
+$\beta^c_{k,l} = {}^{t_0}a^{c,c}_{k,l}/{}^{t_0}a^{c,c}_{\agg,\agg}$, $k,l\in\{\sem,\oth\}$,
+and the value-added and tax ratios of the two new columns (needed in Step 5).
+These ratios are unit-free, so national currency and differing base years are not a problem.
+
+%==========================================================================
+\section{Step 1: domestic blocks for reference economies, eq.~(A.1)}
+%==========================================================================
+
+\paper{``For other years, it is assumed that the shares of the base year can be used to split the technical
+coefficients'' of division 26.}
+
+For a reference economy $r$ and any year $t$, take the ICIO coefficients ${}^{t}a^{r,r}$ and apply the base-year
+ratios:
+\begin{align}
+ \text{row split:}\quad & {}^{t}a^{r,r}_{\sem,j} = {}^{t}a^{r,r}_{\agg,j}\,\sigma^r_j, \qquad
+                          {}^{t}a^{r,r}_{\oth,j} = {}^{t}a^{r,r}_{\agg,j}\,(1-\sigma^r_j), \tag{A.1a}\\
+ \text{column split:}\quad & {}^{t}a^{r,r}_{i,k} = {}^{t}a^{r,r}_{i,\agg}\,\rho^r_{i,k},\qquad k\in\{\sem,\oth\}, \tag{A.1b}\\
+ 2\times 2\text{ block:}\quad & {}^{t}a^{r,r}_{k,l} = {}^{t}a^{r,r}_{\agg,\agg}\,\beta^r_{k,l},\qquad k,l\in\{\sem,\oth\}. \tag{A.1c}
+\end{align}
+
+\paragraph{Derivation / meaning.}
+(A.1a) holds the base-year \emph{composition} of division-26 purchases by industry $j$ fixed: if 30\% of what
+Korean motor vehicles bought from domestic division 26 in 2014 were chips, 30\% is assumed in every year.
+(A.1b) holds the base-year \emph{relative input intensity} of the two sub-industries fixed: if the chip industry
+used 1.8 times as much domestic electricity per unit of output as division 26 on average, that factor is kept.
+(A.1c) follows from applying (A.1a) and (A.1b) in sequence:
+${}^{t}a_{k,l} = {}^{t}a_{\agg,\agg}\,\rho_{\agg,l}\,\sigma^{(k)}_l
+ = {}^{t}a_{\agg,\agg}\frac{{}^{t_0}a_{\agg,l}}{{}^{t_0}a_{\agg,\agg}}\frac{{}^{t_0}a_{k,l}}{{}^{t_0}a_{\agg,l}}
+ = {}^{t}a_{\agg,\agg}\,\beta_{k,l}.$
+
+\paragraph{Consistency.}
+Rows aggregate exactly (Lemma~\ref{lem:rows}). Columns aggregate exactly \emph{with the base-year weight} $w^r_0$:
+$w^r_0\rho^r_{i,\sem} + (1-w^r_0)\rho^r_{i,\oth} = 1$ by Remark~\ref{rem:rho}. In year $t$ the model will produce its
+own $w^r_t$ (Step 5); if $w^r_t\neq w^r_0$ the split columns do not average back exactly to the ICIO column.
+This is the main source of discrepancies checked in Section~\ref{sec:checks}.
+
+\paragraph{Implementation.} In the base year itself (A.1) reproduces the national table's ratios but applies them
+to ICIO levels, not national levels. You never copy national coefficient \emph{levels} into the ICIO.
+
+%==========================================================================
+\section{Step 2: domestic blocks for the other economies}
+%==========================================================================
+
+\paper{China $\leftarrow$ Malaysia; Singapore $\leftarrow$ mean(KOR, TWN); EU members $\leftarrow$ mean(JPN, USA);
+all others $\leftarrow$ mean(JPN, KOR, MYS, TWN).}
+
+For a non-reference economy $s$ with mapping set $\mathcal{R}(s)$, build ratios as averages over $c\in\mathcal{R}(s)$
+and apply (A.1a)--(A.1c) to $s$'s own ICIO coefficients.
+
+\begin{issue}[What is averaged]\label{iss:avg}
+The paper says domestic technical \emph{coefficients} are a ``linear combination'' of those in the reference
+economies. Averaging coefficient \emph{levels} would discard $s$'s own ICIO data. \textbf{Resolution:} average the
+\emph{ratios}, and apply them to $s$'s own coefficients.
+\end{issue}
+
+\begin{issue}[Averaging column ratios breaks Lemma 2]\label{iss:colavg}
+Row shares can be averaged freely: $\bar\sigma_j = \frac1{|\mathcal R|}\sum_c\sigma^c_j\in[0,1]$.
+Column ratios cannot. Each $\rho^c$ satisfies $w^c_0\rho^c_{i,\sem}+(1-w^c_0)\rho^c_{i,\oth}=1$ with its own
+$w^c_0$, so the simple average $\bar\rho$ satisfies no such identity with a single $w$.
+\textbf{Resolution:} average the column \emph{flow} shares $\phi^c_i = w^c_0\rho^c_{i,\sem}$ and the output shares,
+$\bar\phi_i = \mathrm{mean}_c\,\phi^c_i$, $\bar w = \mathrm{mean}_c\,w^c_0$, then set
+\[
+  \bar\rho_{i,\sem} = \bar\phi_i/\bar w,\qquad \bar\rho_{i,\oth} = (1-\bar\phi_i)/(1-\bar w),
+\]
+which satisfies $\bar w\bar\rho_{i,\sem}+(1-\bar w)\bar\rho_{i,\oth}=1$ exactly. Do the same for $\beta$.
+\end{issue}
+
+\begin{issue}[No Malaysian table]\label{iss:mys}
+Malaysia enters the rules for China and for ``all others''. Options, in order of preference:
+(a) obtain a Malaysian table with a semiconductor product (DOSM publishes IO tables; \todo{check whether a
+semiconductor product is separately identified});
+(b) use a Chinese national table if a sufficiently narrow ``electronic components'' sector exists
+(\todo{check; this is broader than semiconductors});
+(c) replace Malaysia by a proxy with a similar, assembly/test-heavy profile, e.g.\ China $\leftarrow$ mean(KOR, TWN)
+and ``others'' $\leftarrow$ mean(JPN, KOR, TWN).
+Report sensitivity of the results to this choice.
+\end{issue}
+
+After Steps 1--2, every diagonal block $A^{r,r}$ is split.
+
+%==========================================================================
+\section{Step 3: imported inputs, column split, eq.~(A.2)}
+%==========================================================================
+
+\paper{``Imported intermediate inputs of product $i$ in economy $s$ are split between the two sub-industries using
+the shares observed for domestic inputs of product $i$ in economy $s$.''}
+
+For every $r\neq s$ and every supplying industry $i$ of $r$:
+\begin{equation}
+  a^{r,s}_{i,\sem} = a^{r,s}_{i,\agg}\,\frac{a^{s,s}_{i,\sem}}{a^{s,s}_{i,\agg}} = a^{r,s}_{i,\agg}\,\rho^s_{i,\sem},
+  \qquad
+  a^{r,s}_{i,\oth} = a^{r,s}_{i,\agg}\,\frac{a^{s,s}_{i,\oth}}{a^{s,s}_{i,\agg}} = a^{r,s}_{i,\agg}\,\rho^s_{i,\oth}.
+  \tag{A.2}
+\end{equation}
+
+\begin{issue}[Typo in the paper]
+The paper prints $a^{r,s}_{i,\oth} = a^{r,s}_{i,\oth}\cdot(\dots)$, which is circular. The first factor must be
+$a^{r,s}_{i,\agg}$, as in the \sem{} equation.
+\end{issue}
+
+\paragraph{Meaning.} The ratio of the \emph{buyer} $s$ is used, not of the seller $r$: how the Korean chip industry
+uses a steel input relative to the rest of Korean division 26 is assumed to be the same whether the steel is
+Korean or Japanese. This is the standard import-proportionality assumption applied to columns.
+
+\paragraph{Flow-form equivalence.} Multiplying by $X^s_\sem = w^s X^s_\agg$:
+\[
+  Z^{r,s}_{i,\sem} = a^{r,s}_{i,\agg}\,\rho^s_{i,\sem}\,w^s X^s_\agg
+   = Z^{r,s}_{i,\agg}\cdot \underbrace{w^s\rho^s_{i,\sem}}_{\phi^s_i}
+   = Z^{r,s}_{i,\agg}\,\frac{Z^{s,s}_{i,\sem}}{Z^{s,s}_{i,\agg}}.
+\]
+So (A.2) is equivalent to ``split the imported flow in the same proportion as the domestic flow''. The coefficient
+form has the advantage that it does not require $w^s$, which is unknown until Step 5.
+
+\paragraph{Which rows $i$?} All supplying rows of $r$, \emph{including} the split rows \sem{} and \oth{} of $r$
+once Step 4 has produced them. For those two rows use the $2\times2$ ratios of the buyer,
+$a^{s,s}_{k,l}/a^{s,s}_{k,\agg}$, $k,l\in\{\sem,\oth\}$. This is where the order of Steps 3 and 4 matters
+(Section~\ref{sec:order}).
+
+%==========================================================================
+\section{Step 4: imported division-26 goods, row split, eqs.~(A.3)--(A.10)}
+%==========================================================================
+
+This is the only step that uses trade data. It is carried out \textbf{separately for every ordered pair}
+$(r,s)$, $r\neq s$, and every year. For a fixed pair, the object is a $2\times J$ matrix: two rows (\sem, \oth)
+and one column per buying industry $j$ of $s$.
+
+\subsection{Stage 1: initial guess, eq.~(A.3)}
+Assume the semiconductor share of imported division-26 inputs equals the domestic one:
+\begin{equation}
+  Z^{r,s(0)}_{\sem,j} = \frac{a^{s,s}_{\sem,j}}{a^{s,s}_{\agg,j}}\,Z^{r,s}_{\agg,j} = \sigma^s_j\,Z^{r,s}_{\agg,j},
+  \qquad
+  Z^{r,s(0)}_{\oth,j} = Z^{r,s}_{\agg,j} - Z^{r,s(0)}_{\sem,j}. \tag{A.3}
+\end{equation}
+$Z^{r,s}_{\agg,j}$ is the observed ICIO flow; $\sigma^s_j$ comes from Steps 1--2. The paper works with flows here
+(not coefficients) because the constraint to be matched, bilateral trade, is a flow.
+
+\subsection{Stage 2: what must be balanced, eqs.~(A.4)--(A.5)}
+Nothing guarantees $\sum_j Z^{r,s(0)}_{\sem,j} = M^{r,s}_\sem$ (A.4). The balanced matrix $\tZ$ must satisfy
+\begin{align}
+  \text{row 1 (trade):}\quad & \textstyle\sum_j \tZ^{r,s}_{\sem,j} = M^{r,s}_\sem, \label{eq:rowS}\\
+  \text{row 2 (implied):}\quad & \textstyle\sum_j \tZ^{r,s}_{\oth,j} = \sum_j Z^{r,s}_{\agg,j} - M^{r,s}_\sem \equiv M^{r,s}_\oth, \label{eq:rowX}\\
+  \text{columns (ICIO):}\quad & \tZ^{r,s}_{\sem,j} + \tZ^{r,s}_{\oth,j} = Z^{r,s}_{\agg,j}\quad\forall j. \label{eq:colj}
+\end{align}
+
+\begin{issue}[The \oth{} row target]
+The paper states only \eqref{eq:rowS} and \eqref{eq:colj}, and says ``the same procedure'' is used for the \oth{}
+row. The \oth{} row needs a target; the only one consistent with \eqref{eq:rowS}--\eqref{eq:colj} is
+\eqref{eq:rowX}, obtained by summing \eqref{eq:colj} over $j$.
+\end{issue}
+
+\paragraph{Feasibility.} A non-negative solution exists only if $0\le M^{r,s}_\sem\le\sum_j Z^{r,s}_{\agg,j}$.
+Since final demand for semiconductors is set to zero (Step 5), \emph{all} semiconductor imports must be absorbed by
+intermediate division-26 imports. Trade data can exceed that total (valuation differences, re-exports, ROW
+aggregation). \textbf{Rule:} cap $M^{r,s}_\sem$ at, e.g., $\sum_jZ^{r,s}_{\agg,j}$ minus a small margin, and log
+every capped pair. Also, if $\sum_j Z^{r,s(0)}_{\sem,j}=0$ but $M^{r,s}_\sem>0$, RAS cannot scale up from zero;
+seed with $\sigma^s_j$ replaced by the average of positive shares.
+
+\subsection{Stage 2: the RAS iterations, eqs.~(A.6)--(A.9)}
+The paper writes each RAS step as ``compute the error, allocate it proportionally''. With iteration counter $k$
+(the paper uses $i$, which clashes with the industry index):
+
+\emph{Row step.} Error $\varepsilon^{(k)}_\sem = M_\sem - \sum_j Z^{(k)}_{\sem,j}$ (A.6), and
+\[
+  Z^{(k+1)}_{\sem,j} = Z^{(k)}_{\sem,j} + \frac{Z^{(k)}_{\sem,j}}{\sum_{j'}Z^{(k)}_{\sem,j'}}\,\varepsilon^{(k)}_\sem
+  \tag{A.7}
+\]
+(and the same for \oth{} with target $M_\oth$). Substituting the error:
+\[
+  Z^{(k+1)}_{\sem,j} = Z^{(k)}_{\sem,j}\left(1 + \frac{M_\sem - \sum_{j'}Z^{(k)}_{\sem,j'}}{\sum_{j'}Z^{(k)}_{\sem,j'}}\right)
+  = Z^{(k)}_{\sem,j}\,\underbrace{\frac{M_\sem}{\sum_{j'}Z^{(k)}_{\sem,j'}}}_{r_\sem}.
+\]
+So the ``additive'' form is exactly a \textbf{multiplicative row scaling} by $r_\sem$: the classic $R$ of RAS.
+
+\emph{Column step.} Error $\varepsilon^{(k+1)}_j = Z_{\agg,j} - Z^{(k+1)}_{\sem,j} - Z^{(k+1)}_{\oth,j}$ (A.8), and
+\[
+  Z^{(k+2)}_{\sem,j} = Z^{(k+1)}_{\sem,j} + \frac{Z^{(k+1)}_{\sem,j}}{Z^{(k+1)}_{\sem,j}+Z^{(k+1)}_{\oth,j}}\,\varepsilon^{(k+1)}_j
+  = Z^{(k+1)}_{\sem,j}\,\underbrace{\frac{Z_{\agg,j}}{Z^{(k+1)}_{\sem,j}+Z^{(k+1)}_{\oth,j}}}_{s_j}.
+  \tag{A.9}
+\]
+The same factor $s_j$ multiplies the \oth{} cell: the $S$ of RAS. After the column step the column constraints hold
+exactly; after the row step the row constraints hold exactly. Alternate until both hold within tolerance.
+Bacharach (1970) proves convergence for non-negative matrices when a solution exists. The limit is the matrix
+closest to $Z^{(0)}$ in the relative-entropy sense that satisfies the constraints, so it preserves the
+\emph{pattern} of the initial guess (zeros stay zero).
+
+\subsection{Worked example}
+One pair $(r,s)$, three buying industries $A,B,C$ with imported division-26 flows $Z_{\agg,\cdot} = (10,30,60)$,
+total 100. Domestic shares in $s$: $\sigma = (0.1, 0.5, 0.2)$. Trade data: $M_\sem = 35$, hence $M_\oth = 65$.
+
+\begin{center}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+ & $A$ & $B$ & $C$ & row sum & target \\
+\midrule
+\multicolumn{6}{@{}l}{\emph{Stage 1, (A.3)}}\\
+\sem & 1.000 & 15.000 & 12.000 & 28.000 & 35 \\
+\oth & 9.000 & 15.000 & 48.000 & 72.000 & 65 \\
+\midrule
+\multicolumn{6}{@{}l}{\emph{Row step: $r_\sem = 35/28 = 1.25$, $r_\oth = 65/72 = 0.9028$}}\\
+\sem & 1.250 & 18.750 & 15.000 & 35.000 & 35 \\
+\oth & 8.125 & 13.542 & 43.333 & 65.000 & 65 \\
+col sum & 9.375 & 32.292 & 58.333 & & \\
+col target & 10 & 30 & 60 & & \\
+\midrule
+\multicolumn{6}{@{}l}{\emph{Column step: $s = (1.0667, 0.9290, 1.0286)$}}\\
+\sem & 1.333 & 17.419 & 15.429 & 34.181 & 35 \\
+\oth & 8.667 & 12.581 & 44.571 & 65.819 & 65 \\
+\midrule
+\multicolumn{6}{@{}l}{\emph{Converged (12 iterations, tolerance $10^{-10}$)}}\\
+\sem & 1.381 & 17.717 & 15.902 & 35.000 & 35 \\
+\oth & 8.619 & 12.283 & 44.098 & 65.000 & 65 \\
+\bottomrule
+\end{tabular}
+\end{center}
+Final semiconductor shares of imported division-26 inputs: $(0.138, 0.591, 0.265)$ versus the domestic
+$(0.1, 0.5, 0.2)$. Trade data say this pair ships relatively more chips than domestic patterns imply, and RAS
+raises every share while keeping their ranking.
+
+\subsection{Stage 3: back to coefficients, eq.~(A.10)}
+\begin{equation}
+  a^{r,s}_{\sem,j} = \frac{\tZ^{r,s}_{\sem,j}}{Z^{r,s}_{\agg,j}}\,a^{r,s}_{\agg,j} = \frac{\tZ^{r,s}_{\sem,j}}{X^s_j},
+  \qquad
+  a^{r,s}_{\oth,j} = \frac{\tZ^{r,s}_{\oth,j}}{Z^{r,s}_{\agg,j}}\,a^{r,s}_{\agg,j} = \frac{\tZ^{r,s}_{\oth,j}}{X^s_j}.
+  \tag{A.10}
+\end{equation}
+The first form reads: ``balanced share times original coefficient''. The second follows from
+$a^{r,s}_{\agg,j} = Z^{r,s}_{\agg,j}/X^s_j$. Row additivity (Lemma~\ref{lem:rows}) holds by \eqref{eq:colj}.
+
+%==========================================================================
+\section{Order of Steps 3 and 4: the cell (\agg,\agg) of import blocks}\label{sec:order}
+%==========================================================================
+
+The import block $A^{r,s}$ contains the cell $a^{r,s}_{\agg,\agg}$ (division 26 of $r$ sold to division 26 of $s$),
+which must become a $2\times 2$ block. It needs both a row and a column split.
+
+\paragraph{Paper's order (column split first).} After (A.2), buyer columns \sem{} and \oth{} of $s$ exist, and the
+RAS in Step 4 runs over $j$ including them. But Stage 1 needs \emph{flows}
+$Z^{r,s}_{\agg,\sem} = a^{r,s}_{\agg,\sem}X^s_\sem$, i.e.\ it needs $X^s_\sem$, which is unknown until Step 5.
+One would need a provisional $w^s$.
+
+\paragraph{Recommended order (row split first).}
+\begin{enumerate}[nosep]
+  \item Step 4 on the \emph{original} columns $j=1,\dots,K$ (including the aggregate column \agg{} of $s$),
+        using observed $Z^{r,s}_{\agg,j}$ and $\sigma^s_\agg = a^{s,s}_{\sem,\agg}/a^{s,s}_{\agg,\agg}$ for $j=\agg$.
+        No unknown outputs are needed.
+  \item Convert to coefficients with (A.10): this gives $a^{r,s}_{\sem,j}$, $a^{r,s}_{\oth,j}$ for all original $j$.
+  \item Step 3 on all rows of $r$, now including \sem{} and \oth{}: for $k\in\{\sem,\oth\}$,
+        $a^{r,s}_{k,l} = a^{r,s}_{k,\agg}\, a^{s,s}_{k,l}/a^{s,s}_{k,\agg}$, $l\in\{\sem,\oth\}$.
+\end{enumerate}
+The trade constraint \eqref{eq:rowS} is then matched over buyers including $s$'s whole division 26, which is then
+distributed between \sem{} and \oth{} buyers by domestic ratios. Everything stays in coefficient space until
+Step 5. \todo{confirm with authors/OECD if possible which order was used.}
+
+%==========================================================================
+\section{Step 5: final demand, output, flows and value added, eqs.~(A.11)--(A.13)}
+%==========================================================================
+
+\subsection{Final demand}
+\paper{$Y^{r,s}_\sem = 0$ and $Y^{r,s}_\oth = Y^{r,s}_\agg$: semiconductors are only intermediate inputs.}
+Apply to every final-demand category, including inventories (INVNT) and direct purchases abroad.
+
+\subsection{Recomputing the table}
+Stack the split coefficients into $A^\ast$ of dimension $N(K+1)$ and the final-demand row sums into $y^\ast$. Then
+\begin{align}
+  X^\ast &= (I-A^\ast)^{-1}y^\ast, \tag{A.11}\\
+  Z^\ast &= A^\ast\hat X^\ast, \tag{A.12}\\
+  V^\ast &= (I-A^{\ast\prime})\mathbf 1 . \tag{A.13}
+\end{align}
+(A.11) is the Leontief solution of $X = AX + y$. (A.12) inverts the definition $a_{ij}=Z_{ij}/X_j$.
+(A.13) gives, for each column $j$, $1-\sum_i a_{ij}$: the share of output not spent on intermediates.
+
+\begin{remark}[What $V$ contains]
+In ICIO, $1-\sum_i a_{ij} = (T_j + W_j)/X_j$: it includes taxes less subsidies on intermediates as well as value
+added. For unsplit industries use the original $T/W$ proportions. For \sem{} and \oth{} use the national-table
+proportions (averaged as in Issue~\ref{iss:colavg} for non-reference economies).
+\end{remark}
+
+\subsection{Does the recomputed table reproduce the original?}\label{sec:checks}
+
+\begin{proposition}
+Suppose the split coefficients aggregate back to the original ones using the output weights $w^s_t$ that the
+model itself produces, i.e.\ for every column Lemma~\ref{lem:cols} holds with $w^s = X^{\ast s}_\sem/X^{\ast s}_\agg$.
+Then $X^\ast$ equals the original $X$ for every unsplit industry, and $X^{\ast s}_\sem + X^{\ast s}_\oth = X^s_\agg$.
+\end{proposition}
+\begin{proof}[Sketch]
+Aggregating rows \sem, \oth{} and columns \sem, \oth{} (with weights $w$) of $X^\ast = A^\ast X^\ast + y^\ast$ yields
+$\bar X = A\bar X + y$ for the aggregated vector $\bar X$; by uniqueness of the Leontief solution $\bar X = X$.
+\end{proof}
+
+The column splits aggregate with the \emph{base-year} weights $w_0$ (Step 1) or averaged weights $\bar w$
+(Step 2), but the model produces its own $w_t = X^\ast_\sem/X^\ast_\agg$, driven by the row split and trade data.
+Where $w_t\neq w_0$, outputs of \emph{other} industries move away from the published ICIO. The paper does not
+discuss this. Required checks, per year:
+\begin{enumerate}[nosep]
+  \item $\max |X^\ast_i - X_i|/X_i$ over unsplit industries.
+  \item $|X^{\ast s}_\sem + X^{\ast s}_\oth - X^s_\agg| / X^s_\agg$ per economy.
+  \item Aggregated $Z^\ast$ vs.\ original $Z$, cell by cell.
+  \item Non-negativity of $Z^\ast$, $V^\ast$ (negative $V$ signals intensities too high for a small $w$).
+  \item Implied semiconductor exports $\sum_{s\neq r}\sum_j Z^{\ast r,s}_{\sem,j}$ vs.\ trade data.
+  \item Implied world semiconductor VA and country shares vs.\ the paper's figures (e.g.\ five reference
+        economies $\approx 75\%$ of world VA in 2018; CHN+KOR+TWN $\approx 60\%$).
+\end{enumerate}
+
+\paragraph{Optional flow-preserving reconciliation.} If the discrepancies matter for your use, keep original
+$X$ for unsplit industries, set $X^s_\sem = \sum_{r,j}Z^{\ast s,r}_{\sem,j}$ (all sales are intermediate),
+$X^s_\oth = X^s_\agg - X^s_\sem$, recompute column flows and rebalance the two new columns with RAS/GRAS against
+the original column-26 flows. This departs from the paper and should be reported as such.
+
+%==========================================================================
+\section{Algorithm summary}
+%==========================================================================
+
+\begin{algorithm}[H]
+\caption{Semiconductor split of ICIO (one year $t$)}
+\begin{algorithmic}[1]
+\Require ICIO $Z,Y,X$; trade $M^{r,s}_\sem$; ratios $\sigma^c,\rho^c,\beta^c,w^c_0$ for reference economies $c$
+\State Build ratios for every economy: own ratios (reference) or averaged ratios (Issues~\ref{iss:avg}--\ref{iss:mys})
+\State $A \gets Z\hat X^{-1}$
+\For{each economy $r$} \Comment{Step 1--2: domestic block}
+  \State split row 26 of $A^{r,r}$ with $\sigma^r$, column 26 with $\rho^r$, cell (26,26) with $\beta^r$
+\EndFor
+\For{each pair $(r,s)$, $r\neq s$} \Comment{Step 4: import rows}
+  \State $Z^{(0)}_{\sem,j}\gets \sigma^s_j Z^{r,s}_{\agg,j}$, $Z^{(0)}_{\oth,j}\gets Z^{r,s}_{\agg,j}-Z^{(0)}_{\sem,j}$, $j=1..K$
+  \State targets: rows $(M_\sem, \sum_j Z^{r,s}_{\agg,j}-M_\sem)$ (capped), columns $Z^{r,s}_{\agg,j}$
+  \State $\tZ\gets\mathrm{RAS}(Z^{(0)},\text{targets})$; \quad $a^{r,s}_{k,j}\gets \tZ_{k,j}/X^s_j$
+\EndFor
+\For{each pair $(r,s)$, $r\neq s$} \Comment{Step 3: import columns}
+  \State for every row $i$ of $r$ (incl.\ \sem, \oth): $a^{r,s}_{i,l}\gets a^{r,s}_{i,\agg}\,a^{s,s}_{i,l}/a^{s,s}_{i,\agg}$, $l\in\{\sem,\oth\}$
+\EndFor
+\State $y^\ast$: move all division-26 final demand to \oth; set \sem{} to 0
+\State $X^\ast\gets(I-A^\ast)^{-1}y^\ast$; \quad $Z^\ast\gets A^\ast\hat X^\ast$; \quad $V^\ast\gets \mathbf 1 - A^{\ast\prime}\mathbf 1$
+\State run checks of Section~\ref{sec:checks}
+\end{algorithmic}
+\end{algorithm}
+
+%==========================================================================
+\section{List of ambiguities and chosen resolutions}
+%==========================================================================
+
+\begin{center}
+\begin{tabular}{@{}p{0.34\textwidth}p{0.6\textwidth}@{}}
+\toprule
+Issue & Resolution in this guide \\
+\midrule
+Typo in (A.2), \oth{} equation & First factor is $a^{r,s}_{i,\agg}$. \\
+Iteration index $i$ in RAS & Renamed $k$. \\
+\oth{} row target in RAS & $M_\oth = \sum_j Z^{r,s}_{\agg,j} - M_\sem$. \\
+$M_\sem >$ intermediate div.-26 imports & Cap and log. \\
+``Linear combination'' of coefficients & Average ratios, apply to own ICIO coefficients. \\
+Averaging column ratios & Average flow shares $\phi$ and $w$, rebuild $\rho$. \\
+Order of Steps 3/4 & Row split on original columns first. \\
+Missing Malaysian table & See Issue~\ref{iss:mys}; report sensitivity. \\
+$V$ mixes VA and TLS & Split using national-table proportions. \\
+Recomputed $X$ differs from ICIO & Check; optional reconciliation. \\
+Trade valuation (FOB/CIF) vs basic prices & Not adjusted in paper; document choice. \\
+Footnote 10 ``described in 0'' & Broken cross-reference; refers to Step 2 rules. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{References}
+\begin{itemize}[nosep,leftmargin=*]
+  \item Bacharach, M. (1970), \emph{Biproportional Matrices and Input-Output Change}, Cambridge University Press.
+  \item Haramboure, A., G. Lalanne, C. Schwellnus and J. Guilhoto (2023), ``Vulnerabilities in the semiconductor
+        supply chain'', OECD Science, Technology and Industry Working Papers 2023/05, \url{https://doi.org/10.1787/6bed616f-en}.
+  \item Martins Guilhoto, J., C. Webb and N. Yamano (2022), ``Guide to OECD TiVA Indicators, 2021 edition'',
+        OECD STI Working Papers 2022/02, \url{https://doi.org/10.1787/58aa22b1-en}.
+\end{itemize}
+
+\end{document}

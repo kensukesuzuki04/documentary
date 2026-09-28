@@ -1,0 +1,1166 @@
+=== PAGE 1 ===
+OECD Science, Technology and Industry Working Papers
+2023/05
+Vulnerabilities
+in the semiconductor supply
+chain
+Antton Haramboure,
+Guy Lalanne,
+Cyrille Schwellnus,
+Joaquim Guilhoto
+https://dx.doi.org/10.1787/6bed616f-en
+
+=== PAGE 2 ===
+2  VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN 
+ OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS  
+  
+OECD Science, Technology and Industry Working Papers 
+ 
+OECD Working Papers should not be reported as representing the official views of the OECD or of its 
+member countries. The opinions expressed and arguments employed are those of the authors. Working 
+Papers describe preliminary results or research in progress by the author(s) and are published to stimulate 
+discussion on a broad range of issues on which the OECD works. Comments on Working Papers are 
+welcomed, and may be sent to Director ate for Science, Technology and Innovation, OECD, 2 rue André -
+Pascal, 75775 Paris Cedex 16, France. 
+ 
+Note to Delegations: 
+This document is also available on O.N.E under the reference code: 
+DSTI/CIIE/WPIA(2022)4/FINAL 
+ 
+This document, as well as any data and any map included herein, are without prejudice to the status of or 
+sovereignty over any territory, to the delimitation of international frontiers and boundaries and to the name 
+of any territory, city or area.  
+ 
+The statistical data for Israel are supplied by and under the responsibility of the relevant Israeli authorities. 
+The use of such data by the OECD is without prejudice to the status of the Golan Heights, East Jerusalem 
+and Israeli settlements in the West Bank under the terms of international law 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+© OECD (2023)  
+ 
+The use of this work, whether digital or print, is governed by the Terms and Conditions to be found at 
+http://www.oecd.org/termsandconditions. 
+
+=== PAGE 3 ===
+VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN  3 
+OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS 
+  
+Vulnerabilities in the semiconductor supply chain 
+ 
+Antton Haramboure (OECD), Guy Lalanne (OECD), Cyrille Schwellnus (OECD), Joaquim Guilhoto (IMF)1 
+Semiconductors are a critical input into a wide range of downstream 
+industries, including the wider information communications technology (ICT) 
+industry, electronics, and motor vehicles. Semiconductor shortages can 
+have large adverse effects on output in these industries, with ripple effects 
+on the broader economy, as highlighted by recent supply chain disruptions. 
+This paper maps cross-country and cross-sectoral dependencies in the 
+semiconductor value chain based on new OECD Inter-Country Input-Output 
+data that allow to analyse the semiconductor industry separately from the 
+wider ICT value chain. It further discusses policy options to reduce the 
+economic consequences of shocks to the semiconductor value chain while 
+preserving the benefits of global sourcing. 
+ 
+Keywords: Global Value Chains, International trade, Resilience, Semiconductors 
+JEL codes: F14, F68, L52 
+ 
+1 Joaquim Guilhoto contributed to this paper while working at the OECD. 
+
+=== PAGE 4 ===
+4  VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN 
+ OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS  
+  
+Acknowledgements  
+The authors would like to thank Kezban Akkurt, Chiara Criscuolo, Alexander Jaax, Sebastien Miroudot, 
+Tom Notten,  Lelio Iapadre, Jehan Sauvage , and Andrew Wyckoff  for valuable comments. The paper 
+greatly benefitted from the knowledge of Agnès Cimper and Charles Cadestin on COMTRADE data, in 
+addition to the expertise of  Colin Webb and Norihiko Yamano on I nter-Country Input-Output tables. The 
+authors are also grateful for helpful discussions at the Working Party on Industry Analysis (WPIA), as well 
+as the Committee for Industry, Innovation and Entrepreneurship (CIIE) of the OECD. The support of Márcio 
+Carvalho in putting together the document is gratefully acknowledged. 
+
+=== PAGE 5 ===
+VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN  5 
+OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS 
+  
+Executive summary 
+Recent semiconductor shortages have highlighted the importance of semiconductors as critical input s 
+into a wide range of industries, including information and communications technology ( ICT), electronics 
+and motor vehicles. These shortages partly reflect unprecedented demand and supply shocks but also a 
+number of structural features of the semiconductor value chain, such as high fixed production costs and 
+high concentration. 
+This paper uses new Inter-Country Input-Output (ICIO) data that separates the semiconductor industry 
+from the rest of the computer and electronics industry to identify key linkages and vulnerabilities. The new 
+data cover the three core semiconductor manufacturing stage s (chip design, wafer foundry, and 
+assembly, test and packaging – ATP) and allows uncovering three key facts: 
+• The semiconductor industry is among the most upstream industries:  
+o On average across countries, “ICT and electronics (excluding semiconductors)” st ands out as 
+the industry that is most highly dependent on semiconductors, with semiconductor value added 
+accounting for 8% of final demand. 
+o In another six industries (including machinery, motor vehicles, and other transport equipment), 
+semiconductors are about as important as primary energy as an input into production. 
+• The semiconductor industry is geographically highly concentr ated, with the top -5 
+semiconductor-producing economies accounting for around three-quarters of global value 
+added: 
+o Over the period 1995-2018, the centre of gravity of semiconductor production shifted from 
+Japan and the United States to a few Asian producers, namely the People’s Republic of China 
+(hereafter “China”), Korea and Chinese Taipei. 
+o In 2018, China, Korea and Chinese Taipei accounted for around 60% of global semiconductor 
+value added. 
+o Most semiconductor -using economies heavily depend on the leading Asian producers, with 
+only limited differences in dependencies across purchasing economies. 
+o Complementary analysis using highly disaggregated trade data reveals that geographic 
+concentration of production is even more pronounced for some specific semiconductors (e.g. 
+memory chips) and certain capital goods used in semiconductor production (e.g., specialised 
+machinery and equipment). 
+• Across economies, dependencies on semiconductors are driven by different industries: 
+o In most Asian economies, dependencies are mainly explained by the “ICT and electronics 
+(excluding semiconductors)” industry. 
+o In the United States and most European economie s, dependencies reflect to a much larger 
+extent the “transport equipment”, “machinery” and “other manufacturing” industries.  
+o In a small number of economies, including Canada and Hong Kong (China), the 
+telecommunications industry accounts for a large part of dependencies. 
+
+=== PAGE 6 ===
+6  VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN 
+ OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS  
+  
+Overall, these results are consistent with the view that the semiconductor value chain can be a significant 
+source of vulnerability, with a disruption of semiconductor production in a single Asian economy potentially 
+triggering shortages in a broad range of downstream economies and industries. 
+  
+
+=== PAGE 7 ===
+VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN  7 
+OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS 
+  
+Table of contents 
+Acknowledgements................................ ................................ ................................ .............. 4 
+Executive summary................................ ................................ ................................ .............. 5 
+1 Introduction ................................ ................................ ................................ ....................... 8 
+2 Setting the scene: The semiconductor value chain ................................ ...................... 10 
+The value chain is highly fragmented ................................ ................................ ................ 10 
+Semiconductors consist of a vast number of specialised products ................................ .... 11 
+High fragmentation and specialisation of production can contribute to vulnerabilities ........ 12 
+3 Data and methodology: Identifying semiconductors in the ICIO system .................... 13 
+4 Dependencies in the semiconductor value chain across economies, industries, 
+and time ................................ ................................ ................................ ..............................  15 
+5 Conclusion ................................ ................................ ................................ ...................... 23 
+References ................................ ................................ ................................ .......................... 24 
+Endnotes ................................ ................................ ................................ ............................. 27 
+Annex A. Methodology ................................ ................................ ................................ ...... 29 
+Annex B. Additional figures ................................ ................................ ..............................  33 
+ 
+FIGURES 
+Figure 1. Semiconductor production 11 
+Figure 2. Semiconductors are a crucial input into a range of industries 15 
+Figure 3. Semiconductor production has become increasingly concentrated in few Asian economies 16 
+Figure 4. Semiconductor production is highly upstream and highly concentrated 17 
+Figure 5. China, Korea and Chinese Taipei lead different segments of the semiconductors industry 18 
+Figure 6. Exports of semiconductor machinery are even more geographically concentrated than exports of 
+semiconductors 19 
+Figure 7. Foreign Input Reliance (FIR) on semiconductors by purchasing economies 21 
+Figure 8. Demand for semiconductors is concentrated in the ICT and electronics industry 22 
+ 
+Figure A A.1. Estimating a semiconductor-augmented matrix of technical coefficients 30 
+Figure A B.1. Export concentration of semiconductors by HS6 product 33 
+Figure A B.2. Export concentration of machinery and specialised equipment by HS6 product 34 
+Figure A B.3. Trade in semiconductor has increased since 2018… 35 
+Figure A B.4. …but the leading economies remain the same 35 
+ 
+
+=== PAGE 8 ===
+8  VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN 
+ OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS  
+  
+Recent semiconductor shortages have highlighted the critical importance of semiconductors for a range of 
+downstream industries, including information and communications technology (ICT), electronics and motor 
+vehicles.1 For instance, a modern car may contain 3 000 semiconductor chips, which control anything from 
+battery management, fuel injection to infotainment systems. These shortages can have sizeable effects on 
+aggregate output and price developments (Leibovici and Dunn, 2021 [1]), with some estimates suggesting 
+that in the first nine months of 2021  the reduction in  motor vehicle production  related to semiconductor 
+shortages lowered GDP by 1½ per cent in Germany and between ½ - 1% in the Czech Republic, Japan 
+and Mexico (OECD, 2021[2]).  
+To some extent, recent semiconductor shortages – that were particularly pronounced for legacy logic chips, 
+analogue chips and optoelectronics chips (U.S. Department of Commerce, 2022[3]) – reflect the exceptional 
+confluence of positive demand shocks and adverse supply shocks . Even before  the COVID -19 crisis , 
+demand for semiconductors had been exceptionally strong, partly due to stockpiling by Chinese tech 
+players in anticipation of US export bans.2 During the initial stages of the COVID -19 crisis, manufacturing 
+companies in a range of industries, including m otor vehicles , anticipated large drops in demand and  
+cancelled most of their semiconductor orders. But demand for semiconductors quickly started to surge, as 
+lockdowns and remote work triggered an increase in demand for electronic devices , and motor vehicle 
+demand recovered faster than expected when mobility restrictions were eased . Surging demand for 
+semiconductors was accompanied by a number of exceptional supply disruptions, such as fires at 
+Japanese production sites, adverse climate events in the  United States and Chinese Taipei , as well as 
+shipping delays.  
+The impact of these exceptional shocks has been amplified by a number of structural features of the 
+semiconductor value chain . First, large upfront investments , long lead times and access to a highly -
+specialised talent pool are required to increase manufacturing capacity, implying slow supply adjustment 
+to surges in demand. Building a manufacturing plant for leading-edge semiconductors requires an upfront 
+investment of USD 10-20 billion (Shih, 2021 [4]). Second, the digital transformation  may structurally raise 
+the demand for semiconductors, as  a growing number of pr oducts incorporate chips. Third, the bulk of 
+semiconductor production is concentrated in a small number of key companies and economies, with each 
+actor typically specialising in one specific stage of the value chain. For instance, many US semiconductor 
+companies have adopted “fabless” business models , specialising on chip design and outsourc ing 
+manufacturing to East Asia, where about 80% of global chip exports originate. 
+More generally, these structural characteristics  imply that the semiconductor supply chain may be 
+vulnerable to short-term demand surges and supply disruptions, as capacity cannot easily be ramped up 
+in the short term, demand is on an increasing trend and local supply disruptions may stress the entire value 
+chain. 
+These vulnerabilities have given rise to policy initiatives aiming to onshore parts of the semiconductor 
+manufacturing value chain, including the European and US CHIPS Acts. Given high levels of geographical 
+concentration, segmentation of production i nto multiple stages and  the wide variety of differentiated 
+products, semiconductor users have only limited scope for diversifying their supply chains. Consequently, 
+a number of key economies (including China, the European Union and the United States ) aim t o 
+1 Introduction  
+
+=== PAGE 9 ===
+VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN  9 
+OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS 
+  
+increasingly source semiconductors from  close allies or onshore parts of the semiconductor value chain , 
+with a view to achieving “strategic autonomy”. 
+Onshoring (or nearshoring) does not come without costs, both in terms of efficiency (higher production 
+costs) and in terms of transitional costs (upfront investments into domestic production  capacities),3 and 
+typically involves industrial policy measures, such as subsidies.  Onshoring efforts can target both 
+increased production capacities for existing technologies, or the domestic development of leading-edge 
+chips. The key policy challenge when trying to achieve “strategic autonomy” is to promote the security of 
+supply while simultaneously minimising adverse side -effects on economic efficiency and ensuring the 
+efficiency of public support. 
+This paper provides a number of results on dependencies in the semiconductor value chain and lays the 
+ground for future work. Despite the significant attention devoted to the causes of semiconductor shortages 
+and their possible remedies , quantitative analyses of  vulnerabilities in the semiconductor supply chain  
+have been scarce, partly due to the lack of harmonised cross-country data.4 This paper contributes to the 
+debate by constructing  new Inter-Country Input -Output (ICIO) tables that allow analysing the  
+semiconductor industry separately from the rest of the computer and electronics value chain. In standard 
+ICIO tables , semiconductors are reported jointly with  the broader computer and electr onics industry, 
+precluding the disaggregate analysis carried out in this paper. 
+The remainder of this paper is structured as follows. Section 2 provides a primer on the semiconductor 
+supply chain. Section 3 briefly describes the methodology used to separat ely identify the semiconductor 
+industry in the system of ICIO tables, with the detail provided in Annex A. Section 4 analyses dependencies 
+in the semiconductor value chain across countries, industries and time, and Section 5 concludes. 
+
+=== PAGE 10 ===
+10  VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN 
+ OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS  
+  
+The production of semiconductors consists of a multitude of stages, with the three core stages of chip 
+design, fabrication and assembly depending on critical upstream inputs, such as a number of critical raw 
+materials (European Commission, 2020 [5]) and specialised software and machinery. Semiconductors are 
+in turn a critical input into a large number of downstream industries, with different industries typically 
+requiring a different range o f specialised chips , for instance for artificial intelligence development and 
+applications. This intricate landscape, marked by a high degree of fragmentation and speciali sation, may 
+contribute to potential vulnerabilities and risks in the supply chain. 
+The value chain is highly fragmented 
+The semiconductor value chain consists of three core stages (BCG and SIA, 2021 [6]; The White House, 
+2021[7]; McKinsey and Company, 2022[8]): 
+• Design. This stage includes set ting the requirements of the chip, designing its architecture, and 
+validating its design on a test bench. The design stage represents about half of semiconductor  
+value added but only 10-15% of physical capital expenditure. 
+• Fabrication / Foundry. This stage consists in printing (or “etching”) the integrated circuit designed 
+in the previous stage on a silicon wafer. Fabrication/foundry relies on a large number of complex 
+advanced manufacturing processes , representing about one -quarter of semiconduc tor value 
+added but almost two-thirds of physical capital expenditure. 
+• Assembly, Test and Packaging.  This stage involves slicing the wafers into individual chips, 
+packaging the chips into frames or resin shells, and testing them. Assembly, test and packaging is 
+less skill- and knowledge-intensive than the core upstream stages, representing only about 5 % of 
+semiconductor value added, but 10-15% of physical capital expenditure.5 
+Integrated Device Manufacturer s (IDMs) integrate the three core  production stage s while oth ers are 
+specialised in a single stage. “F abless” firms, for instance, focus on the design  stage and outsource the 
+core downstream stages to specialised manufacturing companies. In 2019, IDMs accounted for about 70% 
+of global semiconductor sales (BCG and SIA, 2021[6]). 
+2 Setting the scene: The 
+semiconductor value chain 
+
+=== PAGE 11 ===
+VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN  11 
+OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS 
+  
+Figure 1. Semiconductor production 
+ 
+Source: Adapted from McKinsey and Company (2022[8]) and BCG and SIA (2021[6]). 
+The core semiconductor value chain relies on critical upstream inputs, including basic research to improve 
+the design and performance of chips and s pecialised software (e.g., Electronic-Design Automation EDA), 
+raw materials (e.g., silicon, rare earth elements, platinum group metals, gallium, germanium ) and capital 
+equipment (e.g. lithography tools, metrology and inspection equipment).  Downstream stages include the 
+assembly of chips onto printed circuit boards and their integration in to high-tech products (e.g., computer 
+and electronic products, transport equipment – such as cars, and military equipment). 
+Semiconductors consist of a vast number of specialised products 
+Semiconductors can be grouped into three categories (BCG and SIA, 2021[6]): 
+• Logic chips, which process binary information (i.e., 0s and 1s). They include microprocessors (e.g., 
+central and graphics  processing units , including for  artificial intelligence applications ), 
+microcontrollers and connectivity chips (e.g., modems, Wi-Fi or Bluetooth chips). 
+• Memory chips, which store data (e.g., Dynamic Random-Access Memory chips and flash memory). 
+• DAO chips  (for ‘ Discrete, Analog and Others’) , which process non -binary information, typically 
+continuous parameters (e.g., diodes, transistors, voltage regulators, radio frequency chips, optical 
+sensors). 
+In general, high-tech goods rely on all three categories of semiconductor chips but electronic products tend 
+to use a higher share of logic chips, whereas machines and transport equipment incorporate a higher share 
+of DAO chips.  “Fabless” business  models are common in the production of logic chips , whereas IDMs 
+dominate the production of memory and DAO chips.  
+Chips differ by node size (a proxy for the characteristic length of the electronic circuit components), which 
+ranges from around 3 to more than 180 nanometres. Smaller node sizes require more complex and costly 
+manufacturing processes , with nodes of DAO chips typically being large , memory chips being in the 
+
+
+=== PAGE 12 ===
+12  VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN 
+ OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS  
+  
+intermediate range (between 10 and 50 nanometres ), and logic chips ranging fro m small to l arge node 
+sizes depending on the final use.6 
+High fragmentation and specialisation of production can contribute to 
+vulnerabilities 
+The international fragmentation and specialisation of semiconductor production is a highly cost-efficient 
+business model. Companies designing semiconductors  in economies with high R&D and technological 
+capacities can shift the manufacturing stages to the economies with the lowest production costs . This 
+enables them to harness the benefits of economies of scale  by specialising in producing large quantities 
+of highly differentiated semiconductors. 
+The flipside of high-cost efficiency is that fragmentation and product variety  may lead to increased 
+vulnerability to shocks, as the supply chain is exposed to various local risks. For instance, natural disasters 
+affecting foundries  in a key producer, such as Chinese Taipei, can have large ripple effects for both 
+upstream suppliers and downstream users of semiconductors. Even industries and economies that do not 
+directly export intermediate inputs to or import semiconductors from Chinese Taipei may be strongly 
+affected through indirect value chain linkages. Moreover, given high degrees of geographical concentration 
+of production and horizontal differentiation, semiconductors produced in a given economy or company may 
+not be easily substitutable with other semiconductors, creating the potential for shortages even when 
+shocks are circumscribed to few economies or companies. 
+ICIO tables can account for both fragmentation of semiconductor production and , to some extent,  
+specialisation, making it an ideal tool for analysing implied vulnerabilities.  
+• ICIO tables allow tracing production along the entire value chain, enabling the identification of both 
+direct and indirect exposures to disruptions. For instance, low direct imports of semiconductors 
+from Chinese Taipei do not necessarily imply low exposure t o disruptions in Chine se Taipei. 
+Indirect exposure could be high if imports from other source economies incorporate high shares of 
+Chinese Taipei semiconductors. 
+• Moreover, ICIO data allow identifying the origin of semiconductors for each purchasing industry 
+and economy (and , conversely, the destination by industry and economy for each producing 
+economy). For instance, they allow assessing whether the US automotive industry depends more 
+heavily on semiconductors from a specific source economy than the US computer and electronics 
+industry. 
+A limitation of ICIO data for the analysis of vulnerabilities in the semiconductor value chain is that ICIO 
+data cannot account for disruptions in the production of specialised machinery that is critical for 
+semiconductor production. According to national account conventions, machinery purchases  are not 
+considered intermediate input purchases but investments.7 Moreover, ICIO data do not account for the role 
+of substitutability of inputs or inventories in buffering global value chain shocks . Incorporating these two 
+phenomena in the analysis would require behavioural assumptions, i.e. , designing an economic model 
+based on ICIO tables.  
+
+=== PAGE 13 ===
+VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN  13 
+OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS 
+  
+Standard ICIO tables are too aggregated to provide granular insights into the semiconductor value chain. 
+In standard ICIO tables , semiconductor production is included in the “Computer, electronic and optical 
+equipment” industry, which also contains products such as personal computers or smartphones that are 
+largely used as final goods. 8 Therefore, standard inter-country and inter -industry flows of “Computer, 
+electronic and optical equipment” provide little information on semiconductor flows. 
+This paper estimates semiconductor-augmented ICIO tables, where the “Computer, electronic and optical 
+equipment” industry is split into two sub-industries (“Semiconductors” and “ICT and electronics (excluding 
+semiconductors)”). The estimation  proceeds in two main steps: (1) extracting relevant informa tion from 
+bilateral trade data and five domestic input-output tables that are sufficiently granular to identify 
+semiconductors; and (2) constructing an estimated semiconductor-augmented set of technical input-output 
+coefficients. Gross output, flows of intermediate inputs  and value-added in the semiconductor industry 
+follow directly from the estimated technical input -output coefficients. The details of the estimation 
+procedure are described in Annex A. 
+Trade and input-output data used in the first step are obtained from the following sources. B ilateral trade 
+flows of semiconductors over the period 1995 -2018 are obtained from the “Bilateral Trade in Goods by 
+Industry and End-use Category” database.9 Information on inputs used in the semiconductor industry and 
+the use of semiconductors as an input in other industries comes from five domestic input-output tables that 
+are sufficiently granular to identify semiconductors (Korea, Japan, Malaysia, Chinese Taipei and the United 
+States). These five economies represent 75% of the world semiconductor value added in 2018. 
+The technical input-output coefficients in the second step are constructed by combining the information in 
+the bilateral trade data and national input-output data as follows. For the five economies with disaggregated 
+domestic input-output tables , domestic technical coefficients are  directly available. For t he other 
+economies, technical coefficients of an economy with a similar semiconductor industry are used, where 
+the matching between economies is based on expert judgement.10 Technical coefficients for international 
+flows of semiconductors are estimated to match , firstly,  bilateral trade flows of semiconductors  and, 
+secondly, the use of semiconductors across industries as reported in the five disaggregated input-output 
+tables.  
+The semiconductor-augmented ICIO data have a number of limitations. First, primary information on the 
+use of semiconductors is not available for all economies. Hence, data for the other economies need to be 
+imputed. Second, the  disaggregated national input-output tables are only available for one year.  Even 
+though the use of trade data  over the whole period (1995-2018) ensures that the semiconductor -
+augmented ICIO tables accurately reflect the growth in semiconductor trade, it does not necessarily 
+capture domestic trends. These limitations notwithstanding, imputations are informed by the best available 
+trade and input-output data; balancing constraints ensure the overall consistency of the international input-
+output system; and the ICIO tables cover the three core manufacturing stages (chip design, foundry, ATP), 
+as well as its upstream (e.g. raw materials) a nd downstream (e.g. the remainder of the ICT & electronics 
+3 Data and methodology: Identifying 
+semiconductors in the ICIO system 
+
+=== PAGE 14 ===
+14  VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN 
+ OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS  
+  
+industry) linkages. Linkages with the industries providing specialised machinery cannot be analysed using 
+ICIO data since capital goods purchases are not recorded as intermediate input purchases . 
+
+=== PAGE 15 ===
+VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN  15 
+OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS 
+  
+Semiconductors are a crucial input into production in several industries (Figure 2). In the “ICT and 
+electronics (excluding semiconductors)” industry, semiconductors account for around 8% of the value of 
+the final product as compared to 2% for primary energy.11 Given low substitutability of semiconductors, this 
+suggests that a disruption in semiconductor supply could have significantly more ne gative effects on the 
+“ICT and electronics industry (excluding semiconductors)” than a disruption in primary energy supply. In 
+the other main purchasing industries, such as motor vehicles, other transport and machinery , and 
+telecommunications, semiconductors are broadly on par with primary energy as input into production. 
+Figure 2. Semiconductors are a crucial input into a range of industries 
+Share of semiconductor and primary energy value added in final demand, 2018 
+ 
+Note: The sample is restricted to the leading purchasing economies: Brazil, Canada, China, France, Germany, Hong Kong (China), Ireland, 
+Italy, Japan, Korea, Malaysia, Mexico, the Netherlands, the Philippines, Singapore, Switzerland, Chinese Taipei, Thailand, the United Kingdom, 
+the United States. Primary energy includes coal, oil and gas. 
+Source: OECD semiconductor-augmented ICIO tables 
+The centre of gravity of semiconductor production has gradually shifted from the United States and Japan 
+to China, Korea and Chinese Taipei. In 1995, the United States and Japan accounted for more than 50% 
+of global semiconductor value added while China, Korea and Chinese Taipei accounted for only about 
+20%. In 2018, market shares had shifted almost symmetrically, with China, Korea and Chinese Taipei now 
+4 Dependencies in the semiconductor 
+value chain across economies, 
+industries, and time 
+
+=== PAGE 16 ===
+16  VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN 
+ OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS  
+  
+accounting for more than 50%, and the United States and Japan for about 20%. This was concomitant with 
+the shift of some US semiconductor companies to a “fabless” production model, where foundry and 
+packaging are  outsourced and only chip design is retained in-house (Figure 1).12 The shift of 
+semiconductor manufacturing to Asia  makes semiconductor producers and their clients vulnerable to 
+production disruptions in Asia. A t the same time , most Asian semiconductor m anufacturing compani es 
+remain dependent on foreign chip designs and equipment and thus potentially vulnerable to bans on the 
+sharing of intellectual property or export controls. 
+Figure 3. Semiconductor production has become increasingly concentrated in few Asian 
+economies 
+Share of global semiconductor value added, % 
+ 
+Note: The main producers are defined as the economies with the highest average value added between 1995 and 2018. 
+Source: OECD semiconductor-augmented ICIO tables 
+Supply disruptions in one economy can have large downstream effects, given that semiconductor 
+production is among the most upstream and the most geographically concentrated industries  (Figure 4).  
+• The semiconductor industry is among the most distant from final demand , with a degree of 
+“upstreamness” comparable to those of industries such as mining and basic metals. This implies 
+that disruption of semiconductor production may affect a broad range of industries that use 
+semiconductors directly or indirectly (as an input of another supplying industry) .  
+• At the same time, semiconductor productio n is also highly geographically concentrated with the 
+top five economies accounting for about three -quarters of global semiconductor value added. An 
+analysis using more disaggregated data reveals that geographic concentration is even higher for 
+certain types of semiconductors, especially memory chips (Box 1). 
+• Together, these facts imply that a disruption in a single country has the potential to disrupt 
+production in a large number of downstream industries and economies.13  
+
+
+=== PAGE 17 ===
+VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN  17 
+OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS 
+  
+• Recent developments have brought about only small changes in the geographic allocation of the 
+semiconductor industry. Figure A B.3 and Figure A B.4 show that the total value of traded 
+semiconductors has surged by nearly 30% between 2018 and 2021. Despite this growth, the share 
+of trade accruing to the leading economies has remained stable. 
+Figure 4. Semiconductor production is highly upstream and highly concentrated 
+Share of top five economies in global value added (concentration) and distance to final demand 
+(upstreamness), 2018 
+ 
+Note: Geographical concentration of production is measured as  the share of the top five economies in global value added of an industry . 
+Upstreamness of an industry is measured as the distance to final demand (Antràs et al., 2012[9]). 
+Source: OECD semiconductor-augmented ICIO tables 
+
+
+=== PAGE 18 ===
+18  VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN 
+ OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS  
+  
+Box 1. The geographic concentration of semiconductors: a more granular approach 
+The separation of semiconductors from the rest of the ICT and electronics industry in the ICIO requires 
+using a broad definition of semiconductors, obscuring that chips are very diverse. A s describe d in 
+section 2, logic, memory and DAO chips are produced using different manufacturing proces ses and 
+serve different purposes. Using trade data for 2021, Figure 5 shows that they also differ in the location 
+of their production and the resulting export origin . For each type of semiconductor, a different leading 
+economy is responsible for exporting around one -third of the goods, while the top three exporters 
+account for over 55% and the top five for over 70% . Memory chips appear particularly concentrated , 
+with over 80% of exports accruing to the top three exporters. 
+Figure 5. China, Korea and Chinese Taipei lead different segments of the semiconductors 
+industry  
+Concentration of export and trade flows, 2021 
+ 
+Note: Logic, memory and DAO semiconductor segment group goods under headings 8541 and 8542 of the Harmonised Systems. For a 
+more granular presentation of the leading exporters for each product, please refer to Figure A B.1. 
+Source: COMTRADE, and OECD calculations. 
+The broad semiconductor segments used in Figure 5 may be understating the concentration for specific 
+semiconductors by grouping together goods of different qualities . However, a more granular approach 
+using product data ( Figure A B.1) would not entirely solve the problem as there is substantial 
+differentiation across chips within COMTRADE product categories. For example, semiconductors differ 
+by node size, which ranges from more than 180 to around 3  nanometres for the most advanced logic 
+semiconductors. As of early 2023 , only TS MC in Chinese Taipei  (TSMC, 2022 [10]) and Samsung in 
+Korea (Samsung, 2022[11]) have started producing advanced chips with the smallest node size (3nm) at 
+scale. 
+The core semiconductor value chain is itself highly dependent on capital goods, such as specialised 
+machinery, software and intellectual property necessary to design processor architecture. Even though 
+ICIO data only provide a view on intermediate input purchases, and not on capital goods, highly 
+disaggregated trade data allow highlighting the key inter-dependencies (Box 2).14   
+
+
+=== PAGE 19 ===
+VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN  19 
+OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS 
+  
+Box 2. The supply chain for specialised machinery 
+To provide a comprehensive picture of  dependencies in the semiconductor value chain, it is essential 
+to look beyond the ICIO data and examine the upstream suppliers of capital goods.  
+An analysis of highly -disaggregated trade data on specialised machinery and equipment shows that 
+exports of “ machines for the manufacture of semiconductor s & wafers ” are even more concentrated 
+than the highly concentrated export of logic and DAO semiconductors  (Figure 6). Even though 
+sufficiently disaggregated trade data are not available, anecdotal evidence suggests that this is even 
+more pronounced for the machines needed to manufacture leading -edge chips (<10 nm). These high -
+end lithography machines are almost entirely  produced by one Dutch company, which in turn uses 
+specialised optical instruments from one German company (BCG and SIA, 2021[6]). 
+Figure 6. Exports of semiconductor machinery are even more geographically concentrated than 
+exports of semiconductors 
+Share of top three exporters in total exports, 2021, % 
+ 
+Note: The plot represents the share of top three exporters in total exports for several goods of the semiconductor value chain. For a more 
+granular presentation of the leading exporters for each product, please refer to Figure A B.2. 
+Source: COMTRADE, and OECD calculations. 
+Electronic Design and Automation (EDA) tools and intellectual property (IP) necessary to design 
+processor architecture are both critical inputs for the design of semiconductors.1 As of 2021, the United 
+States concentrated as much as 72% of the total revenue in th e IP and EDA market , while Europe 
+accounted for 20% of the revenue (McKinsey and Company, 2022[8]). 
+These results suggest large interdependencies in the semiconductor supply, as no country has control 
+over the full production process. 
+1. IP refers to reusable design components that can be licensed and integrated into semiconductors, while EDA comprises software tools 
+and methodologies used to automate and streamline the electronic design process. 
+  
+
+
+=== PAGE 20 ===
+20  VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN 
+ OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS  
+  
+Production in some Asian economies is particularly vulnerable to disruptions in the semiconductor supply 
+chain (Figure 7, Panel A), which reflects both sectoral and trade specialisation patterns ( Figure 7, Panels 
+B and C). Many Asian economies, including China, Malaysia, and Chinese Taipei, are specialised in “ICT 
+and electronics (excluding semiconductors)” manufacturing, which is highly dependent on semiconductors 
+as an input  (Figure 7,Panel C) . At the same time, the Asian ICT and electronics value chain is highly 
+interconnected, implying that a disruption in a single Asian country may have large ripple effects on its 
+Asian value chain partners (Figure 7,Panel B).  
+Across economies, dependencies on semiconductors are driven by different industries , partly reflecting 
+industrial specialisation (Figure 7,Panel C). In most Asian economies, dependencies are mainly explained 
+by the “ICT and electronics (excluding semiconductors)” industry. In the United States and most European 
+economies, however, dependencies reflect to a much larger extent the “transport equipment”, “machinery” 
+and “other manufacturing” industries. Finally, in a small number of economies, including Canada and Hong 
+Kong (China), the telecommunications industry accounts for a significant part of dependencies.  
+  
+
+=== PAGE 21 ===
+VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN  21 
+OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS 
+  
+Figure 7. Foreign Input Reliance (FIR) on semiconductors by purchasing economies 
+ 
+Note: FIR on semiconductors (Panel A) is computed for each pair of purchasing economy and industry in the sample. FIR on semiconductors 
+of purchasing industry 𝑗 and purchasing economy 𝑐 is defined as the foreign gross semiconductor output  required to produce one unit of 
+domestic gross output  (𝐹𝐼𝑅𝑐,𝑗
+𝑠𝑒𝑚𝑖 = ∑ 𝐹 𝑜𝑟𝑒𝑖𝑔𝑛 𝑜𝑢𝑡𝑝𝑢𝑡𝑐,𝑗
+𝑐′,𝑠𝑒𝑚𝑖 𝐺𝑟𝑜𝑠𝑠 𝑜𝑢𝑡𝑝𝑢𝑡𝑐,𝑗⁄ )𝑁
+𝑐′=1 . It is then averaged by purchasing economy across 
+purchasing industries, weighting by the industr ies’ gross output  (𝐹𝐼𝑅𝑐
+𝑠𝑒𝑚𝑖 = ∑ (𝐹𝐼𝑅𝑐,𝑗
+𝑠𝑒𝑚𝑖 ∗ 𝑊𝑐𝑗
+𝐺𝑂)7
+𝑗=1  𝑤ℎ𝑒𝑟𝑒 𝑊𝑐𝑗
+𝐺𝑂 = 𝐺𝑂𝑐𝑗/ ∑ 𝐺𝑂𝑐𝑗′
+7
+𝑗′=1 ). The 
+share of FIR explained by a supplying economy (Panel B) is computed for each pair of purchasing economy and industry of the sample and 
+then averaged by purchasing economy across industry, weighting by industry’s gross output. (𝑆ℎ𝑎𝑟𝑒𝑆𝑢𝑝𝑝𝑐
+𝑐′,𝑠𝑒𝑚𝑖 = ∑ (𝐹𝐼𝑅𝑐,𝑗
+𝑐′,𝑠𝑒𝑚𝑖/𝐹𝐼𝑅𝑐,𝑗
+𝑠𝑒𝑚𝑖) ∗7
+𝑗=1
+𝑊𝑐𝑗
+𝐺𝑂 ). The share of the FIR explained by a purchasing industry (Panel C) is computed for each country as follows 𝑆ℎ𝑎𝑟𝑒𝑈𝑠𝑒𝑐𝑖
+𝑠𝑒𝑚𝑖 = 𝐹𝐼𝑅𝑐,𝑖
+𝑠𝑒𝑚𝑖 ∗
+𝑊𝑐𝑖
+𝐺𝑂/𝐹𝐼𝑅𝑐
+𝑠𝑒𝑚𝑖.The sample is restricted t o the main purchasing economies: Brazil, Canada, China, France, Germany, Hong Kong (China), 
+Ireland, Italy, Japan, Korea, Malaysia, Mexico, the Netherlands, the Philippines, Singapore, Switzerland, Chinese Taipei, Thailand, the United 
+Kingdom, the United States and the seven purchasing industries that are most reliant on semiconductor s as reported in Figure 2. “Transport” 
+includes “Motor vehicles” and “Other transport equipment”; “Other ma nufacturing” includes “Electrical machinery”, “Machinery” and “Other 
+manufacturing”. 
+Source: OECD semiconductor-augmented ICIO tables 
+
+
+=== PAGE 22 ===
+22  VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN 
+ OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS  
+  
+The concentration of demand can exacerbate supply disruptions, as shown by the chips shortage that 
+affected the motor vehicle sector during COVID-19 crisis (Box 3). 
+Box 3. The motor vehicles industry during the COVID-19 crisis as an example of a demand-
+induced supply shortage 
+At the onset of the COVID -19 crisis, the demand for ICT and electronic equipment s surged due to 
+widespread telework and the increase in personal use  during lockdowns . This surge in demand 
+outpaced the production of semiconductors, leading to widespread shortages.  However, the impact of 
+these shortages varied across different industries. Car makers were particularly affected by shortages 
+while the impact was smaller for firms from the ICT and electronics sector (McKinsey, 2022[14]; OECD, 
+2021[2]). 
+First, ICT and electronics accounts for a substantial share of semiconductor demand, potentially giving 
+the industry some market power. Figure 8.  shows that, as of 2018, most of the value added pro duced 
+in the semiconductor industry is incorporate d in the final goods of a handful of industries, with the ICT 
+and electronics industry accounting for about half of the total value added. 
+Second, the ICT and ele ctronics industry tends to directly source its inputs from the semiconductor 
+industry, while suppliers from other industries often intermediate the trade relationship with car 
+manufacturers. This indirect relationship prevented carmakers from anticipating supply disruption s 
+(McKinsey, 2022[11]), which would have been crucial given their just-in-time manufacturing strategy. 
+Third, the chips needed for the car industry are on average less advanced and profitable than the one s 
+used in the ICT sector , with semiconductor manufacturers  tending to prioritise the most profitable 
+production lines. 
+Figure 8. Demand for semiconductors is concentrated in the ICT and electronics industry 
+Share of top six industries in global semiconductor value added incorporated into final product, 2018 
+ 
+Note: The plot presents the share of semiconductor value added incorporated in the final product of the top six industries in the total 
+semiconductor value added.  
+Source: OECD. 
+ 
+
+
+=== PAGE 23 ===
+VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN  23 
+OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS 
+  
+This paper constructs a novel dataset on direct and indirect dependencies in the semiconductor value 
+chain. The data are built from ICIO tables, bilateral trade data and granular input -output tables from five 
+key economies. They provide technical input-output coefficients, gross output, flows of intermediate inputs 
+and value-added for the semiconductor industry, its suppliers and buyers from 1995 to 2018. 
+Building on this dataset, the paper documents dependencies on semiconductors across economies, 
+industries and time. It reveals how semiconductor production has shifted away from Japan and the United 
+States to China, Korea and Chinese Taipei over the past two decades, each  country specialising in a 
+specific segment of semiconductors (China in DAO, Chinese Taipei in logic and Korea in memory chips). 
+The key result is that the semiconductor industry is both the most upstream and the most concentrated  
+industry in our data . As a result, disruption s in a few key economies could destabilise the supply of 
+semiconductors and quickly propagate to numerous downstream sectors. Such disruptions could severely 
+hit the ICT industry (excluding semiconductors) , as well as  several other large industries, like motor 
+vehicles and electrical equipment. Asian economies, which are highly specialised in  ICT and electronics, 
+would be particularly vulnerable. 
+Many countries are exploring ways to increase the resilience of the semiconductor supply chain . For 
+instance, the yet-to-be-enacted EU Chips Act, the US Chips and Science Act and several Korean laws 
+have pledged significant budgets to an array of policies ranging from tax credits for semiconductor firms to 
+the funding of training. This paper  suggests that no economy controls the whole semiconductor value 
+chain, and even large-scale national industrial policy initiatives are unlikely to change this. 
+Instead of attempting to individually onshore large parts of the semiconductor value chain, OECD 
+economies need to  coordinate policy initiatives in order to mitigate the risks of zero - or negative -sum 
+outcomes. This includes reinforcing and broadening multilateral initiatives, such as the EU-US Trade and 
+Technology Council or the Chip 4 Alliance. 
+  
+5 Conclusion 
+
+=== PAGE 24 ===
+24  VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN 
+ OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS  
+  
+References 
+ 
+Abad, L. et al. (2015), The Malaysian Semiconductor Cluster, 
+https://www.isc.hbs.edu/Documents/resources/courses/moc-course-at-harvard/pdf/student-
+projects/Malaysia_Semiconductor_Cluster_2015.pdf. 
+[16] 
+Acemoglu, D., U. Akcigit and W. Kerr (2016), “Networks and the Macroeconomy: An Empirical 
+Exploration”, NBER Macroeconomics Annual, Vol. 30/1, pp. 273-335, 
+https://doi.org/10.1086/685961. 
+[21] 
+Acemoglu, D. et al. (2012), “The Network Origins of Aggregate Fluctuations”, Econometrica, 
+Vol. 80/5, pp. 1977-2016, https://doi.org/10.3982/ecta9623. 
+[20] 
+Antràs, P. et al. (2012), “Measuring the Upstreamness of Production and Trade Flows”, American 
+Economic Review, Vol. 102/3, pp. 412-416, https://doi.org/10.1257/aer.102.3.412. 
+[9] 
+Arriola, C. et al. (2020), “Efficiency and risks in global value chains in the context of COVID-19”, 
+OECD Economics Department Working Papers, No. 1637, OECD Publishing, Paris, 
+https://dx.doi.org/10.1787/3e4b7ecf-en. 
+[27] 
+Bacharach, M. (1970), Biproportional matrices and input-output change, CUP Archive. [18] 
+Bachmann, R. et al. (2022), “What if? The Economic Effects for Germany of a Stop of Energy 
+Imports from Russia | Publication | CESifo”, CESifo EconPol Policy Report 36, 
+https://www.cesifo.org/en/publikationen/2022/working-paper/what-if-economic-effects-
+germany-stop-energy-imports-russia (accessed on 17 May 2022). 
+[13] 
+Baldwin, R. and R. Freeman (2022), “Risks and Global Supply Chains: What We Know and What 
+We Need to Know”, Annual Review of Economics, Vol. 14/1, https://doi.org/10.1146/annurev-
+economics-051420-113737. 
+[12] 
+BCG and SIA (2021), Strengthening the Global Semiconductor Supply Chain in an Uncertain Era . [6] 
+Birkbeck, D. (ed.) (2020), Network Configuration as a Measure of Power in Global Production 
+Networks, https://eprints.bbk.ac.uk/id/eprint/31935/1/31935.pdf. 
+[30] 
+Carvalho, V. et al. (2020), “Supply Chain Disruptions: Evidence from the Great East Japan 
+Earthquake*”, The Quarterly Journal of Economics, Vol. 136/2, pp. 1255-1321, 
+https://doi.org/10.1093/qje/qjaa044. 
+[24] 
+Chen, Z., Z. Hu and K. Li (2021), “The spillover effect of trade policy along the value Chain: 
+Evidence from China’s rare earth‐related sectors”, The World Economy, 
+https://doi.org/10.1111/twec.13172. 
+[26] 
+
+=== PAGE 25 ===
+VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN  25 
+OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS 
+  
+Congress.Gov (2020), H.R.7178 - CHIPS for America Act, https://www.congress.gov/bill/116th-
+congress/house-
+bill/7178#:~:text=This%20bill%20establishes%20investments%20and,manufacturing%20facilit
+y%20investment%20through%202026. 
+[34] 
+Criscuolo, C. and J. Timmis (2018), “GVCS and centrality: Mapping key hubs, spokes and the 
+periphery”, OECD Productivity Working Papers, No. 12, OECD Publishing, Paris, 
+https://dx.doi.org/10.1787/d4a9bd6f-en. 
+[25] 
+D’Aguanno, L. et al. (2021), Global value chains, volatility and safe openness: is trade a double-
+edged sword?, https://www.bankofengland.co.uk/financial-stability-paper/2021/global-value-
+chains-volatility-and-safe-openness-is-trade-a-double-edged-sword. 
+[22] 
+Deloitte (2022), Government trends 2022: Building resilient, connected, and equitable 
+government of the future, 
+https://www2.deloitte.com/content/dam/insights/articles/us164671_government -trends-
+2022/DI_Govt-trends-2022.pdf?icid=learn_more_content_click (accessed on 6 May 2022). 
+[19] 
+Economist, T. (2020), How ASML became chipmaking’s biggest monopoly, 
+https://www.economist.com/business/2020/02/29/how-asml-became-chipmakings-biggest-
+monopoly. 
+[36] 
+European Commission (2020), Critical Raw Materials for Strategic Technologies and Sectors in 
+the EU: A Foresight Study, https://doi.org/doi: 10.2873/58081. 
+[5] 
+European Commission (2019), European Chips Act, https://ec.europa.eu/info/strategy/priorities-
+2019-2024/europe-fit-digital-age/european-chips-act_en. 
+[35] 
+Frohm, E. and V. Gunnella (2021), “Spillovers in global production networks”, Review of 
+International Economics, Vol. 29/3, pp. 663-680, https://doi.org/10.1111/roie.12526. 
+[29] 
+Giammetti, R., A. Russo and M. Gallegati (2020), “Key sectors in input–output production 
+networks: An application to Brexit”, The World Economy, Vol. 43/4, pp. 840-870, 
+https://doi.org/10.1111/twec.12920. 
+[23] 
+Grassi, B. and J. Sauvagnat (2019), “Production networks and economic policy”, Oxford Review 
+of Economic Policy, Vol. 35/4, pp. 638-677, https://doi.org/10.1093/oxrep/grz021. 
+[28] 
+Handley, K., F. Kamal and R. Monarch (2021), Trade shocks and US firms’ global supply chains: 
+Evidence from the 2018-19 US trade war, 
+https://conference.nber.org/conf_papers/f146199.slides.pdf (accessed on 11 May 2022). 
+[33] 
+Institut Montaigne (2022), Semiconductors in Europe: the return of industrial policy, 
+https://www.institutmontaigne.org/ressources/pdfs/publications/europe-new-geopolitics-
+technology-1.pdf. 
+[15] 
+Kleinhans, J. and N. Baisakova (2020), The global semiconductor value chain: A technology 
+primer for policy makers, https://www.stiftung-
+nv.de/sites/default/files/the_global_semiconductor_value_chain.pdf. 
+[17] 
+Leibovici, F. and J. Dunn (2021), “Supply Chain Bottlenecks and Inflation: The Role of 
+Semiconductors”, Economic Synopses, Vol. 2021/28, https://doi.org/10.20955/ES.2021.28. 
+[1] 
+Martins Guilhoto, J., C. Webb and N. Yamano (2022), “Guide to OECD TiVA Indicators, 2021 
+edition”, OECD Science, Technology and Industry Working Papers, No. 2022/02, OECD 
+Publishing, Paris, https://dx.doi.org/10.1787/58aa22b1-en. 
+[14] 
+
+=== PAGE 26 ===
+26  VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN 
+ OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS  
+  
+McKinsey (2022), Semiconductor shortage: How the automotive industry can succeed . [11] 
+McKinsey and Company (2022), Strategies to lead in the semiconductor world. [8] 
+OECD (2021), OECD Economic Outlook, Volume 2021 Issue 2, OECD Publishing, Paris, 
+https://doi.org/10.1787/66c5ac2c-en. 
+[2] 
+OECD (2019), “Measuring distortions in international markets: The semiconductor value chain” , 
+OECD Trade Policy Papers, No. 234, OECD Publishing, Paris, 
+https://dx.doi.org/10.1787/8fe4491d-en. 
+[32] 
+Semiconductor Industry Association (2021), Risks in the Semiconductor Supply Chain. [10] 
+Shih, W. (2021), Why the global chip shortage is making it so hard to buy a PS5, 
+https://www.theverge.com/2021/8/31/22648372/willy-shih-chip-shortage-tsmc-samsung-ps5-
+decoder-interview (accessed on 25 February 2022). 
+[4] 
+The White House (2021), Building resilient supply chains, revitalising American manufacturing, 
+and fostering broad-based growth, https://www.whitehouse.gov/wp-
+content/uploads/2021/06/100-day-supply-chain-review-report.pdf. 
+[7] 
+Thorbecke, W. (2021), The Semiconductor Industry in the Age of Trade Wars, Covid-19, and 
+Strategic Rivalries, RIETI, https://www.rieti.go.jp/jp/publications/dp/21e064.pdf. 
+[31] 
+U.S. Department of Commerce (2022), Results from Semiconductor Supply Chain Request for 
+Information, https://www.commerce.gov/news/blog/2022/01/results-semiconductor-supply-
+chain-request-information (accessed on 21 October 2022). 
+[3] 
+ 
+ 
+  
+
+=== PAGE 27 ===
+VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN  27 
+OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS 
+  
+Endnotes
+ 
+1 A semiconductor chip (or a chip, or a semiconductor, or an integrated circuit) is an electric 
+circuit consisting of many components, such as transistors, diodes, capacitors or resistors, 
+and their interconnections formed on a semiconductor wafer. 
+2 See The White House (2021[7]), Thorbecke (2021[31]) and Institut Montaigne (2022[15]). 
+3 For instance , establishing fully domestic semiconductor manufacturing supply chains 
+within the United States  could require upfront investments of  USD 1 trillion  (Deloitte, 
+2022[19]). 
+4 The literature on production networks, which studies the transmission of shocks at the 
+sectoral level (Acemoglu et al., 2012[20]; Acemoglu, Akcigit and Kerr, 2016 [21]; D’Aguanno 
+et al., 2021[22]; Giammetti, Russo and Gallegati, 2020 [23]), at the firm level (Carvalho et al., 
+2020[24]) or focus more on the structural evolution of GVCs and the increasing integration 
+between countries (Criscuolo and Timmis, 2018[25]; Antràs et al., 2012[9]; Chen, Hu and Li, 
+2021[26]; Arriola et  al., 2020 [27]; Grassi and Sauvagnat , 2019 [28]; Frohm and Gunnella, 
+2021[29]; Iliopoulos et  al., 2020 [30]) has not shed light on the peculiarities of the 
+semiconductor supply chain. Previous studies of vulnerabilities in the semiconductor supply 
+chain (The White House, 2021 [7]; Institut Montaigne, 2022 [15]) have remained largely 
+qualitative. 
+5 These three core stages therefore account for about 80% of semiconductor value added. 
+The rest comes from upstream production stages (raw materials, machinery…) in other  
+industries. 
+6 While smaller logic and memory chips are considered as more advanced, this is not 
+necessarily the case for DAO semiconductors, whose performance is not affected to the 
+same extent when migrating to smaller node sizes  (Semiconductor Industry Association, 
+2021[10]). 
+7 Machinery, in particular lithography machinery, is a key upstream industry in the 
+semiconductor value chain and tends to be vulnerable to disruptions. For instance, ASML, 
+a Dutch company, produces the vast majority of the Extreme Ultra -Violet lithography 
+machines, which are essential to produce the most advanced chips (with a node size below 
+7 nanometres) (BCG and SIA, 2021[6]). 
+8 See https://www.oecd.org/industry/ind/TiVA-2021-industries.pdf and Guilhoto, Webb and 
+Yamano (2022[14]). 
+9 http://oe.cd/btd  
+10 The detail of the matching is described in 0. 
+11 For the purposes of this note primary energy is defined as Divisions 05 and 06 in the 
+ISIC (Rev. 4) industry classification (coal, oil and gas). 
+ 
+
+=== PAGE 28 ===
+28  VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN 
+ OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS  
+  
+ 
+12 Value added in the semiconductor industry includes chip design, suggesting that the 
+decline in US chips manufacturing value added was larger than the increase in chips design 
+value added.. 
+13 Given the variety of chips (see Section 2), geographic concentration measured at the 
+product-level is probably higher than when measured at the industry -level, and is likely 
+exacerbated by concentration at the individual supplier level (Handley, Kamal and 
+Monarch, 2021[33]). 
+14 Disruptions in the supply of capital goods are likely to take longer to impact downstream 
+production than intermediate goods shortages. 
+
+=== PAGE 29 ===
+VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN  29 
+OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS 
+  
+Annex A. Methodology 
+This Annex describes how, starting from the ICIO data, a semiconductor -augmented ICIO table can be 
+estimated. Additional data (granular input-output tables for five economies and bilateral trade flows in 
+semiconductors) is used to obtain a semiconductor -augmented matrix of technical coefficients. From this 
+matrix, it is possi ble to estimate the rest of the semiconductor augmented ICIO data (gross output, flows 
+of intermediate inputs, value added). Guilhoto, Webb and Yamano  (2022[14]) provide an overview of the 
+main ICIO variables. 
+Pre-processing the additional data 
+Identifying bilateral trade flows in semiconductors 
+For each year and each economy pair, bilateral trade flows of semiconductors are obtained from the 
+‘Bilateral Trade in Goods by Industry and End -use Category’ database ( http://oe.cd/btd). Flows of 
+semiconductors are identified by Harmonised Systems headings 8541 and 8542. 
+Processing national IO tables for economies that provide sufficiently granular 
+information to identify semiconductors 
+This step relies on granular input-output tables for Korea (2014), Japan (2011), Malaysia (2010), Chinese 
+Taipei (2016) and the United States (2012).  These granular tables are aggregated up to the industry 
+classification used for ICIO, with the exception of the split between “Semiconductors” and “ICT and 
+electronics (excluding semiconductors)”.  
+Even though disaggregated national input -output tables are only available for one year, the use of trade 
+data over the whole period (1995-2018) ensures that the semiconductor-augmented ICIO tables accurately 
+reflect the growth in semiconductor trade. However, they do not necessarily capture domestic trends.  
+Estimating the matrix of technical coefficients 
+The split is first performed for the matrix of technical coefficients  (the A matrix following the notation of 
+Guilhoto, Webb and Yamano  (2022[14])). For each producing economy, the coefficients for domestic and 
+foreign uses of ‘Computer, electronic and optical equipment’ (ISIC rev. 4 division 26)  have to be split 
+between uses of semiconductors (261S) and ICT and electronics excluding semiconductors (26X) –  rows 
+in Figure A A.1. Similarly, for each pur chasing economy, the coefficients for domestic and intermediate 
+inputs used by the ‘Computer, electronic and optical equipment’  have to be split between intermediate 
+inputs purchased by the semiconductor industry (261S) and those purchased by the ICT and electronics 
+(excluding semiconductors) industry (26X) – columns in Figure A A.1. 
+
+=== PAGE 30 ===
+30  VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN 
+ OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS  
+  
+Figure A A.1. Estimating a semiconductor-augmented matrix of technical coefficients 
+ 
+Source: OECD. 
+Diagonal blocks of the matrix 
+Estimation of the split for the diagonal blocks of the A matrix proceeds in two steps.  
+First, for economies for which granular input-output tables are available, diagonal blocks are directly 
+available for a base year from the pre-processing step described above. For other years, it is assumed 
+that the shares of the base year can be used to split the technical coefficients of ‘Computer, electronic and 
+optical equipment’ (e.g. 𝑎𝑡261𝑆,𝑗
+𝑟,𝑟 = 𝑎𝑡26,𝑗
+𝑟,𝑟 ∗
+𝑎𝑡0261𝑆,𝑗
+𝑟,𝑟
+𝑎𝑡026,𝑗
+𝑟,𝑟  and . 𝑎𝑡𝑖,261𝑆
+𝑟,𝑟 = 𝑎𝑡𝑖,26
+𝑟,𝑟 ∗
+𝑎𝑡0𝑖,261𝑆
+𝑟,𝑟
+𝑎𝑡0𝑖,26
+𝑟,𝑟  where 𝑡0 is the base year). 
+Second, for the rest of the economies, domestic technical coefficients are obtained as a linear combination 
+of domestic technical coefficients in these five economies. The following rules, based on a literature review 
+of their role in the semiconductor value chain  (BCG and SIA, 2021 [6]; The White House, 2021 [7]; Institut 
+Montaigne, 2022[15]; Abad et al., 2015[16]; Kleinhans and Baisakova, 2020[17]), have been applied: 
+• China is assumed to have the same domestic technical coefficients as Malaysia. 
+• Singapore is assumed to have domestic technical coefficients calculated as the average between 
+those of Korea and Chinese Taipei. 
+• European Union member states are assumed  to have domestic technical coefficients calculated 
+as the average between those of Japan and the United States. 
+
+
+=== PAGE 31 ===
+VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN  31 
+OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS 
+  
+• Other economies are assumed to have domestic technical coefficients calculated a s the average 
+between those of Japan, Korea, Malaysia and Chinese Taipei.   
+At this stage, the methodology gives the diagonal blocks of the A matrix.  Omitting time indices, d omestic 
+purchases of ‘semiconductors’ and ‘ ICT & electronics (excluding semiconductors)’ products (𝑎261𝑆,𝑗
+𝑟,𝑟  and 
+𝑎26𝑋,𝑗
+𝑟,𝑟 ) are available for each  purchasing industry 𝑗 and economy 𝑟. In addition, domestic purchases of 
+‘semiconductors’ and ‘ ICT & electronics  (excluding semiconductors) ’ industries (𝑎𝑖,261𝑆
+𝑟,𝑟  and 𝑎𝑖,26𝑋
+𝑟,𝑟 ) are 
+available for each input 𝑖 and economy 𝑟. 
+Off-diagonal blocks of the A matrix 
+The next step of the methodology aims at imputing the off-diagonal blocks of the A matrix using trade data 
+and the diagonal blocks obtained in the previous step. The step can be decomposed into dealing with two 
+different questions: 1/ How to allocate imported inputs between the ‘semiconductors’ and ‘ ICT and 
+electronics (excluding semiconductors)’ industries? and 2/ How to allocate imported ‘semiconductors’ and 
+‘ICT and electronics (excluding semiconductors)’ goods across domestic industries? 
+How to allocate imported inputs between the ‘semiconductors’ and ‘ ICT and electronics (excluding 
+semiconductor)’ industries? 
+This first step corresponds to splitting the columns in Figure A A.1. It requires calculating the coefficients 
+𝑎𝑖,261𝑆
+𝑟,𝑠  and 𝑎𝑖,26𝑋
+𝑟,𝑠  for each producing industry 𝑖, economy of origin 𝑟 and economy of destination 𝑠 (with 𝑟 ≠
+𝑠). 
+To this end, imported intermediate inputs of product 𝑖 in economy 𝑠 are split between the two sub-industries 
+using the shares observed for domestic inputs of product 𝑖 in economy 𝑠: 
+𝑎𝑖,261𝑆
+𝑟,𝑠 = 𝑎𝑖,26
+𝑟,𝑠 ∗
+𝑎𝑖,261𝑠
+𝑠,𝑠
+𝑎𝑖,26
+𝑠,𝑠  and 𝑎𝑖,26𝑋
+𝑟,𝑠 = 𝑎𝑖,26𝑋
+𝑟,𝑠 ∗
+𝑎𝑖,26𝑋
+𝑠,𝑠
+𝑎𝑖,26
+𝑠,𝑠  , ∀ 𝑖, 𝑟, 𝑠, 𝑟 ≠ 𝑠  
+How to allocate imported semiconductors across domestic industries?  
+This second step corresponds to splitting the rows in Figure A A.1. It requires calculating the coefficients 
+𝑎261𝑆,𝑗
+𝑟,𝑠  and 𝑎26𝑋,𝑗
+𝑟,𝑠  for each importing industry 𝑗, economy of origin 𝑟 and economy of destination 𝑠 (with 𝑟 ≠
+𝑠). 
+This estimation consists of three stages: 1/ estimating initial auxiliary values of intermediate flows in 
+monetary terms (the 𝑍 matrix following the notations of Guilhoto, Webb and Yamano (2022[14]) – here 𝑍̃ to 
+indicate that it is an auxiliary matri x used in this step, whereas the final 𝑍 matrix will be calculated further 
+down the line ), 2/ balancing these auxiliary values to match  trade data on semiconductors  and 3/ 
+calculating the technical coefficients, based on the auxiliary values. 
+Stage 1. To initialise imports of semiconductors in purchasing industry 𝑗, it is assumed that the share of 
+semiconductors among computer and electronics inputs is the same for domestic and imported goods : 
+𝑍261𝑆,𝑗
+𝑟,𝑠 (0)
+=
+𝑎261𝑆,𝑗
+𝑠,𝑠
+𝑎26,j
+𝑠,𝑠 ∗ 𝑍26,𝑗
+𝑟,𝑠  and 𝑍26𝑋,𝑗
+𝑟,𝑠 (0)
+= 𝑍26,𝑗
+𝑟,𝑠 − 𝑍261𝑆,𝑗
+𝑟,𝑠 (0)
+ 
+At this stage, there is no guarantee that the 𝑍(0) matrix is consistent with trade flows. In particular, the 
+following equality, where 𝑀261𝑆
+𝑟,𝑠  denotes imports of semiconductors from economy 𝑟 by economy 𝑠, does 
+not hold. 
+∑ 𝑍261𝑆,𝑗
+𝑟,𝑠 (0)
+=
+𝑗
+𝑀261𝑆
+𝑟,𝑠  
+Stage 2. Therefore, the 𝑍(0) matrix has to undergo a balancing procedure. A balanced system verifies 
+∑ 𝑍̃261𝑆,𝑗
+𝑟,𝑠 =𝑗 𝑀261𝑆
+𝑟,𝑠  and, for each industry 𝑗, 𝑍̃261𝑆,𝑗
+𝑟,𝑠 + 𝑍̃26𝑋,𝑗
+𝑟,𝑠 = 𝑍26,𝑗
+𝑟,𝑠 . 
+
+=== PAGE 32 ===
+32  VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN 
+ OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS  
+  
+The RAS method, also called biproportional adjustment procedure,  is used to balance the relevant rows 
+and columns of the auxiliary 𝑍(0) matrix.  
+While the system is not balanced, the RAS procedure consists in : 
+• Calculating the error in rows 𝜀261𝑆
+𝑟,𝑠 (𝑖)
+= 𝑀261𝑆
+𝑟,𝑠 − ∑ 𝑍261𝑆,𝑗
+𝑟,𝑠 (𝑖)
+𝑗 , and allocating it proportionally to each 
+cell: 𝑍261𝑆,𝑗
+𝑟,𝑠 (𝑖+1)
+= 𝑍261𝑆,𝑗
+𝑟,𝑠 (𝑖)
++
+𝑍261𝑆,𝑗
+𝑟,𝑠 (𝑖)
+∑ 𝑍261𝑆,𝑗
+𝑟,𝑠 (𝑖)
+𝑗
+𝜀261𝑆
+𝑟,𝑠 (𝑖)
+. The same procedure is used to obtain 𝑍26𝑋,𝑗
+𝑟,𝑠 (𝑖+1)
+. 
+• Calculating the error in columns (zero at iteration 𝑖 = 0, but they are introduced by the balancing 
+procedure starting in iteration 1) 𝜀𝑗
+𝑟,𝑠(𝑖+1)
+= 𝑍26,𝑗
+𝑟,𝑠 − 𝑍261𝑆,𝑗
+𝑟,𝑠 (𝑖+1)
+− 𝑍26𝑋,𝑗
+𝑟,𝑠 (𝑖+1)
+, and allocating it 
+proportionally to each cell : 𝑍261𝑆,𝑗
+𝑟,𝑠 (𝑖+2)
+= 𝑍261𝑆,𝑗
+𝑟,𝑠 (𝑖+1)
++
+𝑍261𝑆,𝑗
+𝑟,𝑠 (𝑖+1)
+𝑍261𝑆,𝑗
+𝑟,𝑠 (𝑖+1)
++𝑍26𝑋,𝑗
+𝑟,𝑠 (𝑖+1) 𝜀𝑗
+𝑟,𝑠(𝑖+1)
+. The s ame 
+procedure is used to obtain 𝑍26𝑋,𝑗
+𝑟,𝑠 (𝑖+2)
+. 
+Bacharach (1970[18]) shows that this procedure converges towards a balanced 𝑍̃ matrix, as defined above. 
+Stage 3. The estimated input inflows are used to calculate the technical coefficients.  
+𝑎261𝑆,𝑗
+𝑟,𝑠 =
+𝑍̃261𝑆,𝑗
+𝑟,𝑠
+𝑍26,𝑗
+𝑟,𝑠 ∗ 𝑎26,𝑗
+𝑟,𝑠  and 𝑎26𝑋,𝑗
+𝑟,𝑠 =
+𝑍̃26X,𝑗
+𝑟,𝑠
+𝑍26,𝑗
+𝑟,𝑠 ∗ 𝑎26,𝑗
+𝑟,𝑠  
+Estimating gross output, value added and intermediate consumptions 
+The previous steps provide an 𝐴 matrix where ‘semiconductors’ and ‘ ICT and  electronics (excluding 
+semiconductors)’ are split. 
+In addition, a  new vector  of final demand is created, where it is assumed that final demand for 
+semiconductors is null (𝑌261𝑠
+𝑟,𝑠 = 0 and 𝑌26𝑋
+𝑟,𝑠 = 𝑌26
+𝑟,𝑠), i.e. semiconductors are only used as intermediate inputs. 
+This is a rather mild assumption, as semiconductors are rarely use for consumption or investment, but are 
+rather incorporated into other goods. 
+From the technical coefficients and final demand, it is possible to recover gross output ( 𝑋), intermediate 
+consumption ( 𝑍) and value added as a share of gross output (𝑉), where ‘semiconductors’ and ‘ ICT & 
+electronics (excluding semiconductors)’ are split, as follows:  
+𝑋 = (𝐼 − 𝐴)−1𝑌 
+𝑍 = 𝐴𝑋̂ 
+𝑉 = (𝐼 − 𝐴′)𝟏 
+Where 𝑋̂ is a matrix with the 𝑋𝑖
+𝑟 on its diagonal and 0s for its other elements and 𝟏 is a vector of 1s. 
+  
+
+=== PAGE 33 ===
+VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN  33 
+OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS 
+  
+Annex B. Additional figures 
+Figure A B.1. Export concentration of semiconductors by HS6 product 
+Concentration of export and trade flows, 2021 
+ 
+Note: The figure present s the concentration of exports for all the goods under headings 8541 and 8542 of the Harmonised Systems, except 
+Photovoltaic cells & light-emitting diodes.  
+Source: COMTRADE, and OECD calculations. 
+  
+
+
+=== PAGE 34 ===
+34  VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN 
+ OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS  
+  
+Figure A B.2. Export concentration of machinery and specialised equipment by HS6 product 
+Concentration of export and trade flows, 2021 
+ 
+Note: The figure presents the concentration of exports for several specialised equipment and machinery for semiconductor production. 
+Source: COMTRADE, and OECD calculations. 
+  
+
+
+=== PAGE 35 ===
+VULNERABILITIES IN THE SEMICONDUCTOR SUPPLY CHAIN  35 
+OECD SCIENCE, TECHNOLOGY AND INDUSTRY WORKING PAPERS 
+  
+Figure A B.3. Trade in semiconductor has increased since 2018… 
+Semiconductor exports volume (Base year 2016), 2010-2021 
+ 
+Note: This plot represents the total value of semiconductor recorded in the COMTRADE data. The data is normalised to be equal to 100 in 2016. 
+In that year, 1,99 trillion dollars worth of semiconductors were exchanged. 
+Source: COMTRADE, and OECD calculations. 
+Figure A B.4. …but the leading economies remain the same 
+Share in total semiconductor trade, 2010-2021 
+ 
+Source: COMTRADE, and OECD calculations. 
+ 
